@@ -51,7 +51,7 @@ app.use(cookieParser());
 var option ={
   host: 'localhost', // Replace with your host name
   user: 'root',      // Replace with your database username
-  password: 'aag510100',      // Replace with your database password
+  password: '',      // Replace with your database password
   database: 'Jupiter_Hospital' // // Replace with your database Name
 }; 
 
@@ -106,7 +106,7 @@ passport.use(new LocalStrategy({
     var conn = mysql.createConnection({
       host: 'localhost', // Replace with your host name
       user: 'root',      // Replace with your database username
-      password: 'aag510100',      // Replace with your database password
+      password: '',      // Replace with your database password
       database: 'Jupiter_Hospital' // // Replace with your database Name
     }); 
 
@@ -134,7 +134,7 @@ passport.use(new LocalStrategy({
 var conn = mysql.createConnection({
   host: 'localhost', // Replace with your host name
   user: 'root',      // Replace with your database username
-  password: 'aag510100',      // Replace with your database password
+  password: '',      // Replace with your database password
   database: 'Jupiter_Hospital' // // Replace with your database Name
 }); 
 
