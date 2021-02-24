@@ -1,0 +1,38 @@
+.cd {
+    max-width: 900px;
+    box-shadow: 1px 8px 20px rgba(39, 39, 39, 0.3);
+}
+
+.chm {
+    height: 100%;
+    background: linear-gradient(to left,  #e05483,  #6505e2); 
+    /* background: linear-gradient(to left, #FFDEE9, #B5FFFC); */
+}
+
+.ch {
+    height: 100%;
+}
+
+.f {
+    font-size: 18px;
+}
+
+.fh {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.txAn {
+    animation: rside 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+    
+@keyframes rside {
+    0% {
+    transform: translateX(400px);
+    opacity: 0;
+    }
+    100% {
+    transform: translateX(0);
+    opacity: 2;
+    }
+}

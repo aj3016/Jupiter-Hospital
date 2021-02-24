@@ -1,0 +1,29 @@
+span.close.closeBtn {
+    margin-left: 455px;
+    padding: 0px;
+}
+
+span.closeBtn {
+    position: absolute;
+	transition: transform .25s;
+    font-size: 45px;
+    opacity: .8;
+    font-family: arial;
+    cursor: pointer;
+}
+
+span.closeBtn:hover{
+	opacity: 1;
+    transform: rotate(90deg);
+    color: rgb(255, 0, 0);
+}
+
+span.r{
+    color: red;
+}
+
+.btn {
+    margin-top: 650px;
+    margin-left: 170px;
+    width: 170px;
+}

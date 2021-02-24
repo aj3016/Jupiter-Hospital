@@ -1,0 +1,476 @@
+<%- include('partials/navbar'); %>
+<link rel="stylesheet" href="../../public/stylesheets/about2.css">
+<link rel="stylesheet" href="../../public/stylesheets/PAF.css">
+
+<div class="container cntr">
+
+    <div class="card mx-auto crd">
+
+        <div class="card-header text-left cardHead">
+
+            <h2>
+                Patients Personal Details
+            </h2>
+
+            <p class="text-muted">
+                Edit the form below. We will get back soon to you for more updates.
+            </p>
+
+        </div>
+
+        <div class="card-body">
+
+            <form action="put/<%= personal[0].reg_id %>" method="POST" class="formG">
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">TITLE<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <select class="form-control" name="title" id="title" required disabled>
+
+                            <% if (personal[0].title==="master") { %>
+                                <option value="" disabled >---Select---</option>
+                                <option value="master" selected>Master</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                            <%} else { %>
+                                <% if (personal[0].title==="Ms") { %>
+                                    <option value="" disabled >---Select---</option>
+                                    <option value="master">Master</option>
+                                    <option value="Ms" selected>Ms</option>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>   
+                                <%} else { %>
+                                    <% if (personal[0].title==="Mr") { %>
+                                        <option value="" disabled >---Select---</option>
+                                        <option value="master">Master</option>
+                                        <option value="Ms">Ms</option>
+                                        <option value="Mr" selected>Mr</option>
+                                        <option value="Mrs">Mrs</option>   
+                                    <%} else { %>
+                                        <option value="" disabled >---Select---</option>
+                                        <option value="master">Master</option>
+                                        <option value="Ms" selected>Ms</option>
+                                        <option value="Mr">Mr</option>
+                                        <option value="Mrs" selected>Mrs</option>   
+                                    <% } %>
+                                <% } %>
+                            <% } %>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">FIRST NAME<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <input type="text" name="fname" id="firstname" class="form-control" placeholder="Enter your First Name" required disabled value="<%= personal[0].fname %>">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">LAST NAME<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="text" name="lname" id="lastname" class="form-control" placeholder="Enter your Last Name" required disabled value="<%= personal[0].lname %>">
+
+                    </div>
+
+                </div>
+            
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">EMAIL ADDRESS<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email Address" required disabled value="<%= personal[0].email %>">
+
+                    </div>
+                </div>
+                
+                <!--<div class="form-group row">
+                    
+                    <label class="col-md-3 col-form-label">PASSWORD<span class="r">*</span></label>
+                    <div class="col-md-9">
+
+                        <input type="password" name="password" id="password"  class="form-control" placeholder="Enter a Password" required>
+
+                        <small id="passHelp" class="form-text text-muted">
+                            Password must be between 8-100 characters long. It must include one lowercase character, one uppercase character, a number, and a special character.
+                        </small>
+                        
+                    </div>
+                </div>-->
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">
+                        DATE OF BIRTH<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <% var date = age[0].dob.getDate().toString() %>
+                        <% var month = (age[0].dob.getMonth()+1).toString() %>
+                        <% var year = age[0].dob.getFullYear().toString() %>
+                        <% if (month.length < 2) { %>
+                            <% month = '0' + month; %>
+                        <%}%>
+                        <% if (date.length < 2) { %>
+                            <% date = '0' + date; %>
+                        <%}%>
+                        <input type="date" name="dob" id="bd" required onchange="age()" class="form-control" value="<%= year %>-<%= month %>-<%= date %>">
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">AGE<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="number" id="ag" name="ag" disabled class="form-control" value="<%= age[0].age %>">
+
+                    </div>
+
+                </div>
+            
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">MOBILE NO.<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="tel" name="phone" id="phoneno" class="form-control" maxlength="10" placeholder="Enter your 10 digit Mobile No." required value="<%= personal[0].mobile_no %>" minlength="10" pattern="[1-9]{1}[0-9]{9}">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">ADDRESS<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="text" name="s1" placeholder="Street Address Line 1" id="S1" class="form-control" required value="<%= personal[0].s1 %>">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-md-9 offset-md-3 col-form-label">
+
+                        <input type="text" name="s2" placeholder="Street Address Line 2" id="S2" class="form-control" value="<%= personal[0].s2 %>" required>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">CITY<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="text" name="city" placeholder="Enter your city" id="city" class="form-control" required value="<%= personal[0].city %>">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">POSTAL/ ZIP CODE<span class="r">
+                        *</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <input type="text" name="zip" placeholder="Enter your 6 digit Pin Code" id="zip" class="form-control" maxlength="6" required value="<%= personal[0].pc %>" pattern="[1-9]{1}[0-9]{5}">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">COUNTRY<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+                        <select class="form-control" name="country" required>
+                            <% if (personal[0].country==="India") { %>
+                                <option value="" disabled hidden>---Select---</option>
+                                <option value="India" id="india" selected>India</option>
+                                <option value="Japan" id="japan" >Japan</option>
+                                <option value="UK" id="UK">UK</option>
+                                <option value="USA" id="US">USA</option>
+                                <option value="Australia" id="australia">Australia</option>
+                                <option value="Other" id="other">Other</option>
+                            <%} else { %>
+                                <% if (personal[0].country==="Japan") { %>
+                                    <option value="" disabled hidden>---Select---</option>
+                                    <option value="India" id="india">India</option>
+                                    <option value="Japan" id="japan" selected>Japan</option>
+                                    <option value="UK" id="UK">UK</option>
+                                    <option value="USA" id="US">USA</option>
+                                    <option value="Australia" id="australia">Australia</option>
+                                    <option value="Other" id="other">Other</option>
+                                <%} else { %>
+                                    <% if (personal[0].country==="UK") { %>
+                                        <option value="" disabled hidden>---Select---</option>
+                                        <option value="India" id="india">India</option>
+                                        <option value="Japan" id="japan">Japan</option>
+                                        <option value="UK" id="UK" selected>UK</option>
+                                        <option value="USA" id="US">USA</option>
+                                        <option value="Australia" id="australia">Australia</option>
+                                        <option value="Other" id="other">Other</option>
+                                    <%} else { %>
+                                        <% if (personal[0].country==="US") { %>
+                                            <option value="" disabled hidden>---Select---</option>
+                                            <option value="India" id="india">India</option>
+                                            <option value="Japan" id="japan">Japan</option>
+                                            <option value="UK" id="UK">UK</option>
+                                            <option value="USA" id="US" selected>USA</option>
+                                            <option value="Australia" id="australia">Australia</option>
+                                            <option value="Other" id="other">Other</option>
+                                        <%} else { %>
+                                            <% if (personal[0].country==="Australia") { %>
+                                                <option value="" disabled hidden>---Select---</option>
+                                                <option value="India" id="india">India</option>
+                                                <option value="Japan" id="japan">Japan</option>
+                                                <option value="UK" id="UK">UK</option>
+                                                <option value="USA" id="US">USA</option>
+                                                <option value="Australia" id="australia" selected>Australia</option>
+                                                <option value="Other" id="other">Other</option>
+                                            <%} else { %>
+                                                <option value="" disabled hidden>---Select---</option>
+                                                <option value="India" id="india">India</option>
+                                                <option value="Japan" id="japan">Japan</option>
+                                                <option value="UK" id="UK">UK</option>
+                                                <option value="USA" id="US">USA</option>
+                                                <option value="Australia" id="australia">Australia</option>
+                                                <option value="Other" id="other" selected>Other</option>
+                                            <% } %>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                            <% } %>                        
+                        </select>
+                    </div>
+
+                </div>
+
+                <!--<hr>
+
+                <h2 class="my-4">Medical Details</h2>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">GENDER<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <select class="form-control" name="gender" id="gender" required>
+                            <option value="" disabled selected>---Select---</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">BLOOD GROUP<span class="r">
+                        *</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <select class="form-control" name="bg" id="bg" required>
+                            <option value="" disabled selected>---Select---</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">WEIGHT(KG)<span class="r">
+                        *</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <input class="form-control" type="number" name="weight" id="weight" 
+                        placeholder="Weight In Kg" min="0" required>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">HEIGHT(CM)<span class="r">
+                        *</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <input type="number" class="form-control" name="height" id="height" 
+                        placeholder="Height In Cm" min="0" required>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">ALLERGIES</label>
+
+                    <div class="col-md-9">
+
+                        <textarea name="allergies" id="allergies" cols="96" rows="10" placeholder="Name them if any..."></textarea>
+
+                    </div>
+
+                </div>-->
+
+                <div class="row">
+
+                    <div class="col-md-2 offset-md-4">
+
+                        <input class="btn btn-success btn-lg" onclick="modOpen()" data-target="#myModal" type="button" value="SUBMIT    &#10003;">
+
+
+                    </div>
+
+                    <div class="col-md-4 offset-md-2">
+
+                        <input type="button" class="btn btn-danger btn-lg" onclick="modOp()" data-target="#myMod" value="CLEAR    &#8634;">
+
+                    </div>
+
+                </div>
+
+                <div class="modal fade" id="myModal">
+
+                    <div class="modal-dialog modal-dialog-centered">
+
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+
+                                <h5 class="modal-title">
+                                    <img src="../../public/images/CT.png" width="30" height="30"> CONFIRMATION
+                                </h5>
+                                
+                                <span class="close closeBtn" data-dismiss="modal">
+                                    &times;
+                                </span>
+
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p>Are you sure you want to SUBMIT the data?</p>
+
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button class="btn btn-success" type="submit" id="submit" onclick="modClose()">YES</button>
+
+                                <button class="btn btn-danger" data-dismiss="modal">NO</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal fade" id="myMod">
+
+                    <div class="modal-dialog modal-dialog-centered">
+
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+
+                                <h5 class="modal-title">
+                                  <img src="../../public/images/EXM.png" width="30" height="30">  CONFIRMATION
+                                </h5>
+
+                                <span class="closeBtn close" data-dismiss="modal">
+                                    &times;
+                                </span>
+
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p>Are you sure you want to RESET the data?</p>
+
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button class="btn btn-success" id="reset" type="reset" onclick="modClo();topPage()" data-target="#myMod">
+                                    YES
+                                </button>
+
+                                <button class="btn btn-danger" data-dismiss="modal">NO</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div style="min-height: 50px;"></div>
+
+</div>
+
+<script src="../../public/javascripts/form.js"></script>
+<script src="../../public/javascripts/fmod.js"></script>
+
+<%- include('partials/footer'); %>

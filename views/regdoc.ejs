@@ -1,0 +1,555 @@
+<%- include('partials/navbar'); %>
+<link rel="stylesheet" href="../../public/stylesheets/about2.css">
+<link rel="stylesheet" href="../../public/stylesheets/DAF.css">
+
+
+<div class="container cntr">
+
+    <div class="card mx-auto crd">
+        <% if (errors) { %> 
+            <% for (var i =0; i < errors.length; i++) { %>
+              <div class="alert alert-danger" role="alert">
+                <p><%= errors[i].msg %></p>
+              </div>
+            <% } %>
+        <% } %>
+        <div class="card-header text-left cardHead">
+
+            <h2>
+                Doctors Personal Details
+            </h2>
+
+            <p class="text-muted">
+                Fill the below form accurately.
+            </p>
+
+        </div>
+
+        <div class="card-body">
+
+            <form action="/doctor/register/save" method="POST" id="myForm" class="formG">
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">FIRST NAME<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <div class="input-group">
+
+                            <div class="input-group-prepend">
+
+                              <span class="input-group-text" id="basic-addon1">DR.</span>
+                              
+                            </div>
+                                <input type="text" name="fname" id="firstname" class="form-control" placeholder="Enter your First Name" required aria-describedby="basic-addon1">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">LAST NAME<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="text" name="lname" id="lastname" class="form-control" placeholder="Enter your Last Name" required>
+
+                    </div>
+
+                </div>
+            
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">EMAIL ADDRESS<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email Address" required>
+
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    
+                    <label class="col-md-3 col-form-label">PASSWORD<span class="r">*</span></label>
+                    <div class="col-md-9">
+
+                        <input type="password" name="password" id="password"  class="form-control" placeholder="Enter a Password" required>
+                        
+                        <small id="passHelp" class="form-text text-muted">
+                            Password must be between 8-100 characters long. It must include one lowercase character, one uppercase character, a number, and a special character.
+                        </small>
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">
+                        DATE OF BIRTH<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <input type="date" name="dob" id="bd" required onchange="age()" class="form-control">
+                        
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">AGE<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="number" id="ag" name="ag" disabled class="form-control">
+
+                    </div>
+
+                </div>
+            
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">MOBILE NO.<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="tel" name="phone1" id="phoneno1" class="form-control" maxlength="10" placeholder="Enter your 10 digit Mobile No." required pattern="[1-9]{1}[0-9]{9}" minlength="10">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">EMERGENCY MOBILE NO.<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="tel" name="phone2" id="phoneno2" class="form-control" maxlength="10" placeholder="Enter your 10 digit Emergency Mobile No." required pattern="[1-9]{1}[0-9]{9}" minlength="10">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">ADDRESS<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="text" name="s1" placeholder="Street Address Line 1" id="S1" class="form-control" required>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-md-9 offset-md-3 col-form-label">
+
+                        <input type="text" name="s2" placeholder="Street Address Line 2" id="S2" class="form-control" required>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">CITY<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <input type="text" name="city" placeholder="Enter your city" id="city" class="form-control" required>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">POSTAL/ ZIP CODE<span class="r">
+                        *</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <input type="text" name="zip" placeholder="Enter your 6 digit Pin Code" id="zip" class="form-control" maxlength="6" required minlength="6" pattern="[1-9]{1}[0-9]{5}">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">COUNTRY<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <select class="form-control" name="country" required>
+                            <option value="" disabled selected hidden>---Select---</option>
+                            <option value="India" id="india">India</option>
+                            <option value="Japan" id="japan">Japan</option>
+                            <option value="UK" id="UK">UK</option>
+                            <option value="USA" id="US">USA</option>
+                            <option value="Australia" id="australia">Australia</option>
+                            <option value="Other" id="other">Other</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <h2 class="my-4">Work Details</h2>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">DEGREE<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <select class="form-control" name="degree" id="degree" required>
+                            <option value="" disabled selected hidden>---Select---</option>
+                            <option value="MD">MD</option>
+                            <option value="MS">MS</option>
+                            <option value="MBBS">MBBS</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">
+                        SPECIALIZATIONS<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <select name="specializations" id="specializations" class="form-control" required>
+                            <option value="" disabled selected hidden>---Select---</option>
+                            <option value="Audiologist ">Audiologist</option>
+                            <option value="Cardiologist">Cardiologist</option>
+                            <option value="Dentist">Dentist</option>
+                            <option value="Dermatologist">Dermatologist</option>
+                            <option value="Endocrinologist">Endocrinologist</option>
+                            <option value="Epidemiologists">Epidemiologists</option>
+                            <option value="ENT Specialist">ENT Specialist</option>
+                            <option value="Family Practitioner">Family Practitioner</option>
+                            <option value="Gastroenterologist">Gastroenterologist</option>
+                            <option value="Gynecologist">Gynecologist</option>
+                            <option value="General Psychiatrist">General Psychiatrist</option>
+                            <option value="Orthopedist">Orthopedist</option>
+                            <option value="Pediatrician">Pediatrician</option>
+                            <option value="Physiologists">Physiologists</option>
+                            <option value="Urologist">Urologist</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-12 col-form-label">
+                        AVAILABLE TIMINGS<span class="r">*</span>
+                    </label>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">WEEKDAYS<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-3">
+
+                        <select name="from_wd" id="from_wd" class="form-control" required>
+                            <option value="" disabled selected hidden>---Select---</option>
+                            <option value="Unavailable">Unavailable</option>
+                            <option value="9:00AM">9:00 AM</option>
+                            <option value="10:00AM">10:00 AM</option>
+                            <option value="11:00AM">11:00 AM</option>
+                            <option value="12:00PM">12:00 PM</option>
+                            <option value="1:00PM">1:00 PM</option>
+                            <option value="2:00PM">2:00 PM</option>
+                            <option value="3:00PM">3:00 PM</option>
+                            <option value="4:00PM">4:00 PM</option>
+                            <option value="5:00PM">5:00 PM</option>
+                            <option value="6:00PM">6:00 PM</option>
+                            <option value="7:00PM">7:00 PM</option>
+                            <option value="8:00PM">8:00 PM</option>
+                            <option value="9:00PM">9:00 PM</option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-2 offset-md-1">
+                        <label class="col-form-label">TO</label>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <select name="to_wd" id="to_wd" class="form-control" required>
+                            <option value="" disabled selected hidden>---Select---</option>
+                            <option value="Unavailable">Unavailable</option>
+                            <option value="10:00AM">10:00 AM</option>
+                            <option value="11:00AM">11:00 AM</option>
+                            <option value="12:00PM">12:00 PM</option>
+                            <option value="1:00PM">1:00 PM</option>
+                            <option value="2:00PM">2:00 PM</option>
+                            <option value="3:00PM">3:00 PM</option>
+                            <option value="4:00PM">4:00 PM</option>
+                            <option value="5:00PM">5:00 PM</option>
+                            <option value="6:00PM">6:00 PM</option>
+                            <option value="7:00PM">7:00 PM</option>
+                            <option value="8:00PM">8:00 PM</option>
+                            <option value="9:00PM">9:00 PM</option>
+                            <option value="10:00PM">10:00 PM</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">SATURDAY<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-3">
+
+                        <select name="from_sat" id="from_sat" class="form-control" required>
+                            <option value="" disabled selected hidden>---Select---</option>
+                            <option value="Unavailable">Unavailable</option>
+                            <option value="11:00AM">11:00 AM</option>
+                            <option value="12:00PM">12:00 PM</option>
+                            <option value="1:00PM">1:00 PM</option>
+                            <option value="2:00PM">2:00 PM</option>
+                            <option value="3:00PM">3:00 PM</option>
+                            <option value="4:00PM">4:00 PM</option>
+                            <option value="5:00PM">5:00 PM</option>
+                            <option value="6:00PM">6:00 PM</option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-2 offset-md-1">
+                        <label class="col-form-label">TO</label>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <select name="to_sat" id="to_sat" class="form-control" required>
+                            <option value="" disabled selected hidden>---Select---</option>
+                            <option value="Unavailable">Unavailable</option>
+                            <option value="12:00PM">12:00 PM</option>
+                            <option value="1:00PM">1:00 PM</option>
+                            <option value="2:00PM">2:00 PM</option>
+                            <option value="3:00PM">3:00 PM</option>
+                            <option value="4:00PM">4:00 PM</option>
+                            <option value="5:00PM">5:00 PM</option>
+                            <option value="6:00PM">6:00 PM</option>
+                            <option value="7:00PM">7:00 PM</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">SUNDAY<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-3">
+
+                        <select name="from_sun" id="from_sun" class="form-control" required>
+                            <option value="" disabled selected hidden>---Select---</option>
+                            <option value="Unavailable">Unavailable</option>
+                            <option value="11:00AM">11:00 AM</option>
+                            <option value="12:00PM">12:00 PM</option>
+                            <option value="1:00PM">1:00 PM</option>
+                            <option value="2:00PM">2:00 PM</option>
+                            <option value="3:00PM">3:00 PM</option>
+                            <option value="4:00PM">4:00 PM</option>
+                            <option value="5:00PM">5:00 PM</option>
+                            <option value="6:00PM">6:00 PM</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-2 offset-md-1">
+                        <label class="col-form-label">TO</label>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <select name="to_sun" id="to_sun" class="form-control" required>
+                            <option value="" disabled selected hidden>---Select---</option>
+                            <option value="Unavailable">Unavailable</option>
+                            <option value="12:00PM">12:00 PM</option>
+                            <option value="1:00PM">1:00 PM</option>
+                            <option value="2:00PM">2:00 PM</option>
+                            <option value="3:00PM">3:00 PM</option>
+                            <option value="4:00PM">4:00 PM</option>
+                            <option value="5:00PM">5:00 PM</option>
+                            <option value="6:00PM">6:00 PM</option>
+                            <option value="7:00PM">7:00 PM</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">
+                        WORK EXPERIENCE
+                        <span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <input class="form-control" type="number" name="exp" id="exp" 
+                        placeholder="Enter Years of Experience" min="0" required>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">QUALIFICATION<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <textarea name="medical_colleges" id="medical_colleges" cols="96" rows="10" placeholder="Qualified from which medical colleges..." required></textarea>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-2 offset-md-4">
+
+                        <input class="btn btn-success btn-lg" onclick="modOpen()" data-target="#myModal" type="button" value="SUBMIT    &#10003;">
+                        <!-- <button class="btn btn-success" type="submit"  id="submit">YES</button> -->
+
+                    </div>
+
+                    <div class="col-md-4 offset-md-2">
+                        
+                        <input type="button" class="btn btn-danger btn-lg" onclick="modOp()" data-target="#myMod" value="CLEAR    &#8634;">
+
+                    </div>
+
+                </div>
+                
+                <div class="modal fade" id="myModal">
+
+                    <div class="modal-dialog modal-dialog-centered">
+
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+
+                                <h5 class="modal-title">
+                                    <img src="../../public/images/CT.png" width="30" height="30"> CONFIRMATION
+                                </h5>
+                                
+                                <span class="close closeBtn" data-dismiss="modal">
+                                    &times;
+                                </span>
+
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p>Are you sure you want to SUBMIT the data?</p>
+
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button class="btn btn-success" type="submit" href="/" id="submit" onclick="modClose()">YES</button>
+
+                                <button class="btn btn-danger" data-dismiss="modal">NO</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal fade" id="myMod">
+
+                    <div class="modal-dialog modal-dialog-centered">
+
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+
+                                <h5 class="modal-title">
+                                  <img src="../../public/images/EXM.png" width="30" height="30">  CONFIRMATION
+                                </h5>
+
+                                <span class="closeBtn close" data-dismiss="modal">
+                                    &times;
+                                </span>
+
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p>Are you sure you want to RESET the data?</p>
+
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button class="btn btn-success" id="reset" type="reset" onclick="modClo();topPage()" data-target="#myMod">
+                                    YES
+                                </button>
+
+                                <!--<button class="btn btn-success" type="submit" formnovalidate 
+                                href="DM.html">
+                                    YES onclick="$(myMod).modal('hide')"
+                                </button>-->
+
+                                <button class="btn btn-danger" data-dismiss="modal">NO</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div style="min-height: 50px;"></div>
+
+</div>
+
+<script src="../public/javascripts/fmod.js"></script>
+
+<%- include('partials/footer'); %>

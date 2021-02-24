@@ -1,0 +1,98 @@
+<%- include('partials/navbar'); %>
+<link rel="stylesheet" href="../public/stylesheets/about2.css">
+<link rel="stylesheet" href="../public/stylesheets/LF.css">
+
+<div class="container cntr" style="margin-top: 67px;">
+    
+    <% if (message.length===0) { %> 
+        <div class="card mx-auto crd" style="margin-top: 9%;">
+    <%} else { %>   
+        <div class="card mx-auto crd" style="margin-top: 5%;">  
+            <div class="alert alert-danger m-0" role="alert" style="padding: 0.75rem;">
+                <p style="padding: 0; margin: 0;"><%= message %></p>
+            </div>
+    <% } %>
+
+      <div class="card-header text-center cardHead">
+
+          <h2>LOGIN</h2>
+
+      </div>
+
+      <div class="card-body">
+
+          <form action="/login/enter" method="POST" class="formG">
+
+              <div class="form-group row">
+
+                  <label class="col-md-3 col-from-label">
+                      LOGIN AS
+                      <span class="r">*</span>
+                  </label>
+
+                  <div class="col-md-9">
+
+                      <select class="form-control" name="user" id="user" required>
+
+                          <option value="" disabled selected hidden>---Select---</option>
+                          <option value="patient_login">Patient</option>
+                          <option value="doctor_login">Doctor</option>
+                          <option value="receptionist_login">Receptionist</option>
+
+                      </select>
+
+                  </div>
+
+              </div>
+
+              <div class="form-group row col-from-label">
+
+                  <label class="col-md-3" for="exampleInputEmail1">
+                      EMAIL ADDRESS
+                      <span class="r">*</span>
+                  </label>
+                  
+                  <div class="col-md-9">
+
+                      <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter your Email Address" required>
+
+                  </div>
+
+              </div>
+
+              <div class="form-group row">
+
+                  <label for="exampleInputPassword1" class="col-md-3 col-from-label">
+                      PASSWORD
+                      <span class="r">*</span>
+                  </label>
+
+                  <div class="col-md-9">
+
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your Password" name="password" required>
+
+                  </div>
+
+              </div>
+
+              <div class="row">
+
+                  <div class="col-md-5 offset-md-3">
+
+                    <button type="submit" class="btn btn-primary" style="margin-left: 45%">
+                        LOGIN <i class="fa fa-send"></i>
+                    </button>
+
+                  </div>
+
+              </div>
+              
+          </form>
+
+      </div>
+
+  </div>
+
+</div>
+
+<%- include('partials/footer'); %>

@@ -1,0 +1,400 @@
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body{
+    background-color: aliceblue;
+}
+
+/*Navbar starts*/
+.navbar .nav-item .dropdown-menu{ display: none; }
+.navbar .nav-item:hover .nav-link{ color: #fff;  }
+.navbar .nav-item:hover .dropdown-menu{ display: block; }
+.navbar .nav-item .dropdown-menu{ margin-top:0; }
+
+.navbar{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.nav-item{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.navbar.scrolled{
+    background-color: #333333 !important;
+    transition: background-color 200ms linear;
+}
+.feet{
+    background-color: #333333;
+    width: 100%;
+    height: 200px;
+}
+@keyframes yourAnimation{
+    0%{
+        transform: rotate(0deg) translateX(0) translateY(10%);
+        opacity: 0;
+    }
+    50%{
+        transform: rotate(0deg) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+/*Navbar ends*/
+
+/*Header starts*/
+.header{
+    width:100%;
+    height:100vh;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/WhatsApp\ Image\ 2020-10-05\ at\ 8.39.03\ PM.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    clip-path: polygon(100% 0%,100% 84%,50% 100%,0 84%,0 0);
+    position: relative;  
+    background-attachment: fixed;
+}
+
+.header:before{
+    content:"";
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    opacity: 0.3;
+    z-index: -1;
+    background: linear-gradient(to right,#818d9b 0%,#78c5bc 0%,#5daebd 100%);
+}
+
+.center-div{
+    text-align:center;
+    width:100%;
+    height:auto;
+    position:absolute;
+    top:50%;
+    left:50%;
+    color:white;
+    transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+}
+
+.header-buttons a{
+    border:1px solid #fff;
+    border-radius:100px;
+    margin:10px;
+    padding: 5px 10px;
+    outline:none;
+    color:#fff;
+    font-size:1.2rem;
+    font-weight:400;
+    line-height:1.4;
+    text-align:center;
+}
+
+.header-buttons a:hover{
+    color: #f5f1f1;
+    background:rgb(38, 87, 83);
+    text-decoration: none;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0 0.3);
+}
+
+.center-div p{
+    font-size: 1.3rem;
+    padding: 10px 0 20px 0;
+    color:white;
+}
+
+.center-div h2{
+    font-size: 3.3rem;
+    padding: 10px 0 20px 0;
+    color:white;
+}
+
+@media screen and (max-width:662px){
+    .center-div .center-img{
+        width:80%;
+    }
+    .center-div .header-buttons a{
+        font-size:0.71rem;       
+    }
+}
+
+/*Header ends*/
+
+/*Welcome part starts*/
+.about-section{
+    margin-top:5rem;
+    margin-bottom:5rem;
+}
+
+.about-heading{
+    text-transform:uppercase;
+}
+
+.about-heading-upper{
+    display: inline-block;
+    font-size:2rem;
+    font-weight:bold;
+}
+
+.about-heading-lower{
+    display:inline-block;
+    font-size:25px;
+    font-weight:light;
+}
+
+.bg-faded{
+    background:rgba(17,219,207,0.8);
+    padding: 3px 3px 3px 3px;
+}
+
+.about{
+    position:relative;
+}
+
+@media screen and (min-width:992px){
+    .about .about-img{
+        width:70%;
+        float:right;
+    }
+    .about .about-text{
+        left:105px;
+        width:50%;
+        margin-top:10rem;
+        position:absolute;
+    }
+}
+
+@media screen and (min-width:1200px){
+    .about .about-text{
+        width:40%;
+    }
+}
+/*Welcome part ends*/
+
+/*About section starts*/
+.aboutus-section{
+    margin-top:2rem;
+    margin-bottom:2rem;
+}
+
+.aboutus-heading{
+    text-transform:uppercase;
+}
+
+.aboutus-heading-upper{
+    display: inline-block;
+    font-size:1rem;
+    font-weight:bold;
+}
+
+.bg-faded{
+    background:rgba(101, 235, 226, 0.8);
+    padding: 3px 5px 5px 5px;
+}
+
+.aboutus{
+    position:relative;
+}
+
+@media screen and (min-width:992px){
+    .aboutus .aboutus-img{
+        width:50%;
+        float:left;
+        margin-left: 2rem;
+    }
+}
+
+@media screen and (min-width:1200px){
+    .aboutus .aboutus-text{
+        left:400px;
+        width:45%;
+        margin-top:4rem;
+        position:absolute;
+    }
+}
+
+@media screen and (min-width:992px){
+    .aboutus .aboutusf-img{
+        width:50%;
+        float:right;
+        top:20px;
+        margin-right: 2rem;
+    }
+}
+
+@media screen and (min-width:1200px){
+    .aboutus .aboutusf-text{
+        left:300px;
+        width:45%;
+        top:350px;
+        margin-top:4rem;
+        position:absolute;
+    }
+}
+
+@media screen and (min-width:992px){
+    .aboutus .aboutuss-img{
+        width:50%;
+        float:left;
+        top:20px;
+        margin-left: 2rem;
+    }
+}
+
+@media screen and (min-width:1200px){
+    .aboutus .aboutuss-text{
+        left:370px;
+        width:45%;
+        top:680px;
+        margin-top:4rem;
+        position:absolute;
+    }
+}
+
+c{
+    color:#a70e49
+  }
+/*About section ends*/
+
+/*Service div starts*/
+.header-extradiv{
+    width:100%;
+    height:auto;
+    margin:50px 0;
+    text-align:center;
+  }
+
+.extra-div{
+    background:#b2b9b9;
+    border:medium none;
+    padding: 50px 40px 40px 40px;
+    border-radius:4px;
+    transition:0.6s;
+}
+  
+.extra-div:hover{
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    transform: translateY(-10px);
+}
+
+hr{
+    height: 1px;
+    background-color: #0000007e;
+}
+
+.modal-dialog{
+    position:relative;
+    top:5px;
+    transition:0.3s;
+}
+
+.modal-content{
+    
+    background-color: #fff;
+    border-radius:15px;
+    padding:7px 5px 7px 5px;
+}
+/*Service div ends*/
+
+/*Slider starts*/
+.post-slider{
+    position:relative;
+}
+
+.post-slider .slider-title{
+    text-align:center;
+    margin: 30px auto;
+}
+
+.post-slider .next{
+    position:absolute;
+    top:50%;
+    right:50px;
+    font-size:0.5cm;
+    color:#000;
+    cursor: pointer;
+}
+
+.post-slider .prev{
+    position:absolute;
+    top:50%;
+    left:50px;
+    font-size:0.5cm;
+    color:#000;
+    cursor: pointer;
+}
+
+
+.post-slider .post-wrapper{
+    width:84%;
+    height:350px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px 0px 10px 0px;
+}
+
+.post-slider .post-wrapper .post{
+    width:250px;
+    height:330px;
+    margin: 0px 10px;
+    display:inline-block;
+    background: #d3e7eb;
+    border-radius:5px;
+    box-shadow: 0rem 1rem 1rem -1rem #333538;
+}
+
+.post-slider .post-wrapper .post .post-info{
+    height:80px;
+    text-align:center;
+    padding-top:10px;
+    border-radius:5px;
+}
+
+.post-slider .post-wrapper .post .slider-image{
+    width:100%;
+    height:250px;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+/*Slider ends*/
+
+/*Contact starts*/
+.footersection{
+    width:100%;
+    height:auto;
+    padding: 50px 30px 30px 30px;
+    background: #333333;
+    position:relative;
+}
+
+.footer-div{
+    background: aliceblue;
+    padding:13px 80px 13px 80px;
+}
+
+#myBtn{
+    position:fixed;
+    bottom:20px;
+    right:30px;
+    z-index:99;
+    border:none;
+    color:#fff;
+    background:#5daebd;
+    padding:8px;
+    border-radius:5px;
+  }
+  
+  #myBtn:hover{
+    background:#333538;
+  }
+  
+/*Contact ends*/
+:target {
+    display: block;
+    position: relative;
+    top: -100px; 
+    visibility: hidden;
+  }
+

@@ -1,0 +1,1065 @@
+<%- include('partials/navbar'); %>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="../public/stylesheets/about2.css">
+<link rel="stylesheet" href="../public/stylesheets/lore.css">
+<link rel="stylesheet" href="../public/stylesheets/ec.css">
+<link rel="stylesheet" href="../public/stylesheets/per.css">
+<link rel="stylesheet" href="../public/stylesheets/ph.css">
+<link rel="stylesheet" href="../public/stylesheets/work.css">
+<link rel="stylesheet" href="../public/stylesheets/status.css">
+<link rel="stylesheet" href="../public/stylesheets/tod.css">
+<link rel="stylesheet" href="../public/stylesheets/rec.css">
+<link rel="stylesheet" href="../public/stylesheets/recep.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+    <% if (user === "patient_login") { %>
+        <div class="container-fluid">
+            <div style="margin-top: 90px;" class="bs-example">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#home" style="font-size: 18px;">Personal Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu1" style="font-size: 18px;">Medical Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu2" style="font-size: 18px;">Medical History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu3" style="font-size: 18px;">Book Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu4" style="font-size: 18px;">Appointment Status</a>
+                    </li>
+                </ul>         
+            </div>
+            <div class="tab-content">
+                <div id="home" class="container tab-pane active cona"><br>
+                    <div class="card mx-auto dra shadow-lg" style="  border-top-right-radius: 30px ;border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;" data-aos="zoom-in-down" data-aos-duration="1000">            
+                        <div class="card-body drb">
+                            <div class="row ra">    
+                                <div class="col-lg-5 mt-5">                      
+                                    <div class="title shadow-pop-tl" data-aos="zoom-in-down" data-aos-duration="1200">
+                                        <h2>Personal Details</h2>
+                                    </div>
+                                    <div class="main" data-aos="zoom-in-up" data-aos-duration="1300">
+                                        <img alt=" Responsive image" src="../public/images/undraw_detailed_analysis_xn7y.svg" class="mt-7 mb-5 img-fluid mx-auto">
+                                    </div> 
+                                </div>
+            
+            
+                                <div class="col-lg-7">
+                                    <div  style="margin-left:80%; margin-bottom:10px;">
+                                        <div class="edit">
+                                            <button style="width: 77px;" class="btn btn-primary" onclick="window.location.href='/patient/editpd/<%= pd[0].reg_id %>'">     
+                                                <i class="fas fa-edit" aria-hidden="true"></i> Edit
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2" >
+                                        <div class=" col-lg-6 col-md-5 col-5" >
+                                            <i class="fa fa-id-badge" aria-hidden="true"></i>
+                                            <strong class="margin-10px-left f">ID</strong>
+                                        </div> 
+                                        <div class="col-lg-6 col-7 ">
+                                            <p class="margin-10px-right txAn f"><%= pd[0].reg_id %></p>
+                                        </div>
+                                   </div>
+            
+                                    <hr>
+                                             
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                            <strong class="margin-10px-left f">Name</strong>
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right" >
+                                            <p class="margin-10px-right txAn f"><%= pd[0].title + " " + pd[0].fname + " " + pd[0].lname %></p>
+                                        </div>
+                                    </div>
+                                           
+                                    <hr>
+                                                
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                                            <strong class="margin-10px-left f">Date of Birth</strong>
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                            <% var div = String(ag[0].dob) %>
+                                            <% div = div.split(" ") %>
+                                            <p class="margin-10px-right txAn f"><%= div[0] + " " + div[1] + " " + div[2] + " " + div[3] %></p>
+                                        </div>
+                                    </div>
+                         
+                             
+                                    <hr>
+                            
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <strong class="margin-10px-left f">Age</strong>
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right" >
+                                            <p class="margin-10px-right txAn f"><%= ag[0].age %></p>
+                                        </div>
+                                    </div>
+                            
+                                    <hr>
+                            
+                         
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-mobile" aria-hidden="true"></i>
+                                            <strong class="margin-10px-left f">Contact No.</strong>
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                            <p class="margin-10px-right txAn f"><%= pd[0].mobile_no %></p>
+                                        </div>
+                                    </div>
+                                
+                                    <hr>
+                                
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                                            <strong class=" xs-margin-four-left f">Email</strong>
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right" >
+                                            <p class="margin-10px-right txAn f"><a href="javascript:void(0)"><%= pd[0].email %></a></p>
+                                        </div>  
+                                    </div>
+                                    
+                                    <hr>
+                                    
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <strong class="margin-10px-left f">Address</strong>
+                                        </div>
+                                    
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right" > 
+                                            <p class="margin-10px-right txAn f"><%= pd[0].s1 %> <br> <%= pd[0].s2 %> <br> <%= pd[0].city + pd[0].pc %> <br> <%= pd[0].country %></p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>       
+                        </div>       
+                    </div>
+                </div>
+                <div id="menu1" class="container tab-pane fade cona"><br>
+                    <div class="card mx-auto dra shadow-lg" style="  border-top-right-radius: 30px ; border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;" data-aos="zoom-in-down" data-aos-duration="1000">            
+                        <div class="card-body drb">
+                            <div class="row ra">    
+                                <div class="col-lg-5 mt-5">                      
+                                    <div class="title shadow-pop-tl" data-aos="zoom-in-down" data-aos-duration="1200">
+                                        <h2>Medical Details</h2>
+                                    </div>
+                                    <div class="main" data-aos="zoom-in-up" data-aos-duration="1300">
+                                        <img alt=" Responsive image" src="../public/images/undraw_doctor_kw5l.svg" class="mt-7 mb-5 img-fluid mx-auto">
+                                    </div> 
+                                </div>
+
+
+                                <div class="col-lg-7">
+                                    <div  style="margin-left:80%; margin-bottom:10px;">
+                                        <div class="edit">
+                                            <button style="width: 77px;" class="btn btn-primary" onclick="window.location.href='/patient/editmd/<%= pd[0].reg_id %>'">     
+                                                <i class="fas fa-edit" aria-hidden="true"></i> Edit
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2" >
+                                        <div class=" col-lg-6 col-md-5 col-5" >
+                                            <i class="fa fa-id-badge" aria-hidden="true"></i>
+                                            <strong class="margin-10px-left f">ID</strong>
+                                        </div> 
+                                        <div class="col-lg-6 col-7  " >
+                                            <p class="margin-10px-right txAn f"><%= md[0].reg_id %></p>
+                                        </div>
+                                </div>
+
+                                    <hr>
+                                            
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-genderless" aria-hidden="true"></i>
+                                            <strong class="margin-10px-left f" >Gender</strong>
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                            <p class="margin-10px-right txAn f"><%= md[0].gender %></p>
+                                        </div>
+                                    </div>
+                                        
+                                    <hr>
+                                                
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-tint" aria-hidden="true"></i>
+                                            <strong class="margin-10px-left f" >Blood Group</strong>
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                            <p class="margin-10px-right txAn f"><%= md[0].bg %></p>
+                                        </div>
+                                    </div>
+                        
+                            
+                                    <hr>
+                            
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <strong class="margin-10px-left f">Weight</strong>
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right" >
+                                            <p class="margin-10px-right txAn f"><%= md[0].weight %></p>
+                                        </div>
+                                    </div>
+                            
+                                    <hr>
+                            
+                        
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <strong class="margin-10px-left f" >Height</strong>
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right" >
+                                            <p class="margin-10px-right txAn f"><%= md[0].height %></p>
+                                        </div>
+                                    </div>
+                                
+                                    <hr>
+                                
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                            <strong class=" xs-margin-four-left f" >Allergies</strong>
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                            <p class="margin-10px-right txAn f"><%= md[0].allergies %></p>
+                                        </div>  
+                                    </div>
+                                
+                                </div>
+                            </div>       
+                        </div>       
+                    </div>
+                </div>
+                <div id="menu2" class="container tab-pane fade"><br>
+                    <div class="shadow-pop-tl mb-5 mt-2" data-aos="zoom-in-down" data-aos-duration="1200" style="background: #042542; color: white; width:250px; margin-left: 5%; padding-left: 5px ; padding-bottom: 3px; padding-top: 5px;">
+                        <h2>Medical History</h2>
+                    </div>
+                  <% if (mh.length === 0) { %>
+                    <div  class="card shadow-sm" style="width: 90%; text-align: center;border-radius: 10px ;margin-left: 10%;"data-aos="zoom-in-down" data-aos-duration="1000">
+                        <div class="card-body">
+                            <div class="card-text txAn1" >
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5>No Medical Records</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  <%} else { %>
+                    <% for (var x = 0; x < dis.length;  x++ ) { %>
+                        <div class="card mt-3 mx-auto cd rounded" data-aos="zoom-in-down" data-aos-duration="1000">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card-header chm rounded py-4">
+                                        <div class="fh text-light">
+                                            <% var div = String(dis[x].issue_date) %>
+                                            <% div = div.split(" ") %>
+                                            <span><i class="fa fa-clock-o"></i> <%= div[0] + " " + div[1] + " " + div[2] + " " + div[3] %></span>
+                                        </div>
+                                        <div class="row no-gutters">
+                                            <div class="col-md-auto text-light">
+                                                <span class="mt-4 fh"><i class="fa fa-stethoscope"></i> Issued By : </span>
+                                            </div>
+                                            <div class="col-md-6 text-center text-light">
+                                                <% for (var j = 0; j < ba1.length;  j++ ) { %>
+                                                    <% if (dis[x].issue_by === ba1[j].reg_id) { %>
+                                                        <span class="mt-4 fh">Dr. <%= ba1[j].fname %> <%= ba1[j].lname %></span>
+                                                    <% } %>    
+                                                <% }; %>
+                                            </div>
+                                            <!-- <div class="col-md-auto fh">
+                                                <span><i class="fa fa-stethoscope"></i> Issued By : Dr. Pole Walt</span>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 p-4">
+                                    <% for (var i = 0; i < mh.length;  i++ ) { %>
+                                        <% if ((dis[x].issue_by === mh[i].issue_by)&&(dis[x].issue_date.toString() === mh[i].issue_date.toString())) { %>
+                                            <div class="row txAn1">
+                                                <div class="col-md-1 mt-1">
+                                                    <img src="../public/images/pill8.png" alt="pill" width="20" height="20">
+                                                </div>
+                                                <div class="col-md-5 mt-1 text-center">
+                                                    <span class="f"><%= mh[i].medicine %></span>
+                                                </div>
+                                                <div class="col-md-6 mt-1 text-center">
+                                                    <span class="f"><%= mh[i].dossage %></span>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        <% }; %>
+                                    <% }; %>                                   
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                  <% } %>
+                </div>
+                <div id="menu3" class="container tab-pane fade"><br>
+                    <div class="shadow-pop-tl mt-2" data-aos="zoom-in-down" data-aos-duration="1200" style="background: #042542;
+                    color: white; width:300px; margin-left: 5%; padding-left: 5px ; padding-bottom: 3px; padding-top: 5px;">
+                        <h2>Book Appointment</h2>
+                    </div>
+                    <div class="card mx-auto crd mt-5 cd" data-aos="zoom-in-down" data-aos-duration="1000">
+                        <div class="card-body">
+                            <form action="/dashboard/tt" method="POST" class="formG">
+                                <div class="form-group row">
+                                    <label class="col-md-6">SELECT A DOCTOR WHOSE APPOINMENT YOU WANT<span class="r">*</span></label>
+                                    <div class="col-md-12">
+                                        <select name="doc_name" id="doc_name" class="doc_name form-control" required>
+                                            <option value="" disabled hidden selected>---Select---</option>
+                                            <% for (var i =0, j =0; i < ba1.length, j< ba2.length;  i++, j++ ) { %>
+                                                <option value="<%= ba1[i].reg_id %> ">Dr. <%= ba1[i].fname %> <%= ba1[i].lname %> (<%= ba2[j].specialization  %>)</option> 
+                                             <% } %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-5">SELECT A DATE FOR APPOINTMENT<span class="r">*</span></label>
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="date" name="date_a" id="date_a" min="" required onchange="day_finder()">
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary mt-4 mb-2 btn-block checkbut" style="padding: 10px;" type="button">CHECK FOR APPOINTMENT</button>
+                                <div class="test"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu4" class="container tab-pane fade"><br>
+                    <div class="shadow-pop-tl mt-2" data-aos="zoom-in-down" data-aos-duration="1200" style="background: #042542;
+                    color: white; width:300px; padding-left: 5px ; padding-bottom: 3px; padding-top: 5px;">
+                        <h2>Appointment Status</h2>
+                    </div>
+                    <% if (sta.length === 0) { %>
+                        <div  class="card ml-5 my-2 shadow-sm mt-5" style="width: 98%; text-align: center;border-radius: 10px"data-aos="zoom-in-down" data-aos-duration="1000">
+                            <div class="card-body">
+                                <div class="card-text txAn1" >
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h5>No Appointments Booked</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <%} else { %>
+                        <div  class="card ml-5 shadow-sm mb-4" style="border-radius: 10px; margin-top: 50px;text-align: center; background: linear-gradient(to left,  #e05483,  #6505e2); width: 98%; 
+                        "data-aos="zoom-in-down" data-aos-duration="1000">
+                            <div class="card-body">
+                                <div class="card-text txAn1 " >
+                                    <div class="row ">
+                                        <div class="col-3 text-light">
+                                            <span class="abc  ">Doctor Name</span>
+                                        </div>
+                                        <div class="col-3 text-light">
+                                            <span class="abc">Appointment Date</span>
+                                        </div>
+                                        <div class="col-3 text-light">
+                                            <span class="abc">Appointment Time</span>
+                                        </div>
+                                        <div class="col-3 text-light">
+                                            <span class="abc">Status</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <% for (var i = 0; i < sta.length;  i++ ) { %>
+                            <div  class="card ml-5 my-2 shadow-sm " style="width: 98%; text-align: center;border-radius: 10px"data-aos="zoom-in-down" data-aos-duration="1000">
+                                <div class="card-body" style="height: 75px;">
+                                    <div class="card-text txAn1" >
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <% for (var j = 0; j < ba1.length;  j++ ) { %>                             
+                                                    <% if (sta[i].doc_reg_id === ba1[j].reg_id) { %>
+                                                        <span class="abc">Dr. <%= ba1[j].fname %> <%= ba1[j].lname %></span>
+                                                    <% } %>    
+                                                <% }; %> 
+                                            </div>
+                                            <div class="col-3">
+                                                <% var div = String(sta[i].app_date) %>
+                                                <% div = div.split(" ") %> 
+                                                <span class="abc"><%= div[0] + " " + div[1] + " " + div[2] + " " + div[3] %></span>
+                                            </div>
+                                            <div class="col-3">
+                                                <span class="abc"><%= sta[i].app_time %></span>
+                                            </div>
+                                            <div class="col-3">
+                                                <% if (sta[i].stat === null) { %>
+                                                    <span class="bg-secondary   text-light btns" style="border-radius: 5px; padding-left: 14px; padding-right: 14px ; padding-top: 8px;padding-bottom:8px ;" >Pending</span>
+                                                <%} else { %>
+                                                    <% if (sta[i].stat === 1) { %>
+                                                        <span class="bg-success   text-light btns" style="border-radius: 5px;padding-left: 10px;padding-right: 10px;padding-top: 8px;padding-bottom: 8px;" >Accepted</span>
+                                                    <%} else { %>
+                                                        <% if (sta[i].stat === 0) { %>
+                                                            <span class="bg-danger text-light btns" style="border-radius: 5px; padding-left: 16px;padding-right: 16px;padding-top: 8px;padding-bottom: 8px;"> Decline</span>
+                                                        <%} else { %>
+                                                            <span class="bg-info   text-light btns" style="border-radius: 5px; padding-left: 14px; padding-right: 14px ; padding-top: 8px;padding-bottom:8px ;" >Unknown</span>
+                                                        <% } %>
+                                                    <% } %>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }; %>
+                    <% } %>
+                  </div>
+            </div>   
+        </div>
+    <%} else { %>
+        <% if (user === "doctor_login") { %>
+            <div class="container-fluid">
+                <div style="margin-top: 90px;" class="bs-example">
+                    <ul class="nav nav-tabs" role="tablist" id="myTab">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home" style="font-size: 18px;">Personal Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu1" style="font-size: 18px;">Work Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu2" style="font-size: 18px;">Pending Appointments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu3" style="font-size: 18px;" >Todays Appointments</a>
+                        </li>
+                    </ul>         
+                </div>
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane active cond"><br>
+                        <div class="card drg mx-auto  shadow-lg" style="  border-top-right-radius: 30px ;border-top-left-radius: 30px; border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;" data-aos="zoom-in-down" data-aos-duration="1000">            
+                            <div class="card-body drh">
+                                <div class="row rd">    
+                                    <div class="col-lg-5 mt-5">                      
+                                        <div class="title shadow-pop-tl" data-aos="zoom-in-up" data-aos-duration="1200">
+                                            <h2>Personal Details</h2>
+                                        </div>
+                                        <div class="main" data-aos="zoom-in-up" data-aos-duration="1300">
+                                            <img alt=" Responsive image" src="../public/images/undraw_medicine_b1ol.svg" class="mt-7 mb-5 img-fluid mx-auto">
+                                        </div> 
+                                    </div>
+
+
+                                    <div class="col-lg-7">
+                                        <div  style="margin-left:80%; margin-bottom:10px;">
+                                            <div class="edit">
+                                                <button style="width: 77px;" class="btn btn-primary" onclick="window.location.href='/doctor/editpd/<%= pd[0].reg_id %>'">     
+                                                    <i class="fas fa-edit" aria-hidden="true"></i> Edit
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2" >
+                                            <div class=" col-lg-6 col-md-5 col-5" >
+                                                <i class="fa fa-id-badge" aria-hidden="true"></i>
+                                                <span class="f"><b>ID</b></span>
+                                            </div> 
+                                            <div class="col-lg-6 col-7" >
+                                                <p class="f margin-10px-right txAn"><%= pd[0].reg_id %></p>
+                                            </div>
+                                    </div>
+
+                                    <hr>
+                                                
+                                        <div class="row mt-2">
+                                            <div class="col-md-5 col-lg-6 col-5">
+                                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                                <span class="f"><b>Name</b></span>
+                                            </div>
+                                            <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                                <p class="f margin-10px-right txAn"> <%= "Dr " + pd[0].fname + " " + pd[0].lname %></p>
+                                            </div>
+                                        </div>
+                                            
+                                    <hr>
+                                                    
+                                        <div class="row mt-2">
+                                            <div class="col-md-5 col-lg-6 col-5">
+                                                <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                                                <span class="f"><b>Date of Birth</b></span>
+                                            </div>
+                                            <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                                <% var div = String(ag[0].dob) %>
+                                                <% div = div.split(" ") %>
+                                                <p class="f margin-10px-right txAn"><%= div[0] + " " + div[1] + " " + div[2] + " " + div[3] %></p>
+                                            </div>
+                                        </div>
+                            
+                                
+                                    <hr>
+                                
+                                        <div class="row mt-2">
+                                            <div class="col-md-5 col-lg-6 col-5">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <span class="f"><b>Age</b></span>
+                                            </div>
+                                            <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                                <p class="f margin-10px-right txAn"><%= ag[0].age %></p>
+                                            </div>
+                                        </div>
+                                
+                                    <hr>
+                                
+                            
+                                        <div class="row mt-2">
+                                            <div class="col-md-5 col-lg-6 col-5">
+                                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                                <span class="f"><b>Contact No.</b></span>
+                                            </div>
+                                            <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                                <p class="f margin-10px-right txAn"><%= pd[0].mobile_no %></p>
+                                            </div>
+                                        </div>
+                                    
+                                    <hr>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-mobile" aria-hidden="true"></i>
+                                            <span class="f"><b>Emergency Contact No.</b></span>
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                            <p class="f margin-10px-right txAn"><%= pd[0].Emobile_no %></p>
+                                        </div>
+                                    </div>
+                                
+                                    <hr>
+
+                                    
+                                        <div class="row mt-2">
+                                            <div class="col-md-5 col-lg-6 col-5">
+                                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                <span class="f"><b>Email</b></span>
+                                            </div>
+                                            <div class="col-md-7 col-lg-6 col-7 margin-10px-right" >
+                                                <p class="f margin-10px-right txAn"><a href="javascript:void(0)"><%= pd[0].email %></a></p>
+                                            </div>  
+                                        </div>
+                                        
+                                    <hr>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-5 col-lg-6 col-5">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <span class="f"><b>Address</b></span>
+                                        </div>
+                                    
+                                        <div class="col-md-7 col-lg-6 col-7 margin-10px-right" > 
+                                            <p class="f margin-10px-right txAn"><%= pd[0].s2 %> <br> <%= pd[0].city + pd[0].pc %> <br> <%= pd[0].country %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>              
+                        </div>
+                        </div>
+                    </div>
+                    <div id="menu1" class="container tab-pane fade cond"><br>
+                        <div class="card drg mx-auto  shadow-lg" style="  border-top-right-radius: 30px ;border-top-left-radius: 30px; border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;" data-aos="zoom-in-down" data-aos-duration="1000">            
+                            <div class="card-body drh">
+                                <div class="row rd">    
+                                    <div class="col-lg-5 mt-5">                      
+                                        <div class="title shadow-pop-tl" data-aos="zoom-in-down" data-aos-duration="1200">
+                                            <h2>Work Details</h2>
+                                        </div>
+                                        <div class="main" data-aos="zoom-in-up" data-aos-duration="1300">
+                                            <img alt=" Responsive image" src="../public/images/undraw_medical_research_qg4d.svg" class="mt-7 mb-5 img-fluid mx-auto">
+                                        </div> 
+                                    </div>
+                
+                
+                                    <div class="col-lg-7">
+                                        <div  style="margin-left:80%; margin-bottom:10px;">
+                                            <div class="edit">
+                                                <button style="width: 77px;" class="btn btn-primary" onclick="window.location.href='/doctor/editwd/<%= pd[0].reg_id %>'">     
+                                                    <i class="fas fa-edit" aria-hidden="true"></i> Edit
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2" >
+                                            <div class=" col-lg-6 col-md-5 col-5" >
+                                                <i class="fa fa-id-badge" aria-hidden="true"></i>
+                                                <span class="f"><b>ID</b></span>
+                                            </div> 
+                                            <div class="col-lg-6 col-7  " >
+                                                <p class="f margin-10px-right txAn"><%= md[0].reg_id %></p>
+                                            </div>
+                                       </div>
+                
+                                    <hr>
+                                                 
+                                        <div class="row mt-2">
+                                            <div class="col-md-5 col-lg-6 col-5">
+                                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                                <span class="f"><b>Degree</b></span>
+                                            </div>
+                                            <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                                <p class="f margin-10px-right txAn"><%= md[0].degree %></p>
+                                            </div>
+                                        </div>
+                                               
+                                    <hr>
+                                                    
+                                        <div class="row mt-2">
+                                            <div class="col-md-5 col-lg-6 col-5">
+                                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                                <span class="f"><b>Specialization</b></span>
+                                            </div>
+                                            <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                                <p class="f margin-10px-right txAn"><%= md[0].specialization %></p>
+                                            </div>
+                                        </div>
+                             
+                                 
+                                    <hr>
+                                
+                                        <div class="row mt-2">
+                                            <div class="col-md-5 col-lg-6 col-5">
+                                                <i class="fa fa-clock" aria-hidden="true"></i>
+                                                <span class="f"><b>Weekday Available Time</b></span>
+                                            </div>
+                                            <div class="col-md-7 col-lg-6 col-7 margin-10px-right" >
+                                                <p class="f margin-10px-right txAn"><%= md[0].weekday_from + " to " + md[0].weekday_to %></p>
+                                            </div>
+                                        </div>
+                                
+                                    <hr>
+                                
+                             
+                                        <div class="row mt-2">
+                                            <div class="col-md-5 col-lg-6 col-5">
+                                                <i class="fa fa-clock" aria-hidden="true"></i>
+                                                <span class="f"><b>Saturday Available Time</b></span>
+                                            </div>
+                                            <div class="col-md-7 col-lg-6 col-7 margin-10px-right" >
+                                                <p class="f margin-10px-right txAn"><%= md[0].sat_from + " to " + md[0].sat_to %></p>
+                                            </div>
+                                        </div>
+                                    
+                                    <hr>
+                                    
+                                        <div class="row mt-2">
+                                            <div class="col-md-5 col-lg-6 col-5">
+                                                <i class="fa fa-clock" aria-hidden="true"></i>
+                                                <span class="f"><b>Sunday Available Time</b></span>
+                                            </div>
+                                            <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                                <p class="f margin-10px-right txAn"><%= md[0].sun_from + " to " + md[0].sun_to %></p>
+                                            </div>  
+                                        </div>
+                                    
+                                    </div>
+                                </div>       
+                            </div>       
+                        </div>
+                    </div>
+                    <div id="menu2" class="container tab-pane fade"><br>
+                        <div class="shadow-pop-tl mb-5 mt-2" data-aos="zoom-in-down" data-aos-duration="1200" style="background: #042542;
+                        color: white; width:350px; padding-left: 5px ; padding-bottom: 3px; padding-top: 5px;">
+                            <h2>Pending Appointment</h2>
+                        </div>
+                      <% if (mh.length === 0) { %>
+                        <div  class="card shadow-sm" style="width: 90%; text-align: center;border-radius: 10px ;margin-left: 10%;"data-aos="zoom-in-down" data-aos-duration="1000">
+                            <div class="card-body">
+                                <div class="card-text txAn1" >
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h5>No Pending Appointments</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      <%} else { %>
+                        <div  class="card ml-5 text-light shadow-sm mb-4" style="width: 98%;border-radius: 10px; margin-top: 50px;text-align: center; background: linear-gradient(to right,#000046, #1cb5e0 ); "data-aos="zoom-in-down" data-aos-duration="1000">
+                            <div class="card-body" >
+                                <div class="card-text txAn1" >
+                                    <div class="row" >
+                                        <div class="col-2">
+                                            <span class="abc text-light">ID</span>
+                                        </div>
+                                        <div class="col-2">
+                                            <span class="abc text-light">Name</span>
+                                        </div>
+                                        <div class="col-2">
+                                            <span class="abc text-light">Date</span>
+                                        </div>
+                                        <div class="col-2">
+                                            <span class="abc text-light">Time</span>
+                                        </div>
+                                        <div class="col-2">
+                                            <span class="abc text-light">Symptoms</span>
+                                        </div>
+                                        <div class="col-2">
+                                            <span class="abc text-light">Action</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                        <% for (var i = 0; i < mh.length;  i++ ) { %>
+                                <div  class="card ml-5 my-2 shadow-sm row<%= i %>" style="width: 98%; text-align: center;border-radius: 10px; background:white; "data-aos="zoom-in-down" data-aos-duration="1000">
+                                    <div class="card-body ">
+                                        <div class="card-text" >
+                                            <div class="row txAn1">
+                                                <div class="col-2">
+                                                    <span class="abc ids<%= i %>"><%= mh[i].pat_reg_id %></span>
+                                                </div>
+                                                <div class="col-2">
+                                                    <% for (var j = 0; j < ba1.length;  j++ ) { %>                             
+                                                        <% if (mh[i].pat_reg_id === ba1[j].reg_id) { %>
+                                                            <span class="abc names<%= i %>" ><%= ba1[j].fname %> <%= ba1[j].lname %></span>
+                                                        <% } %>    
+                                                    <% }; %> 
+                                                </div>
+                                                <div class="col-2">
+                                                    <% var div = String(mh[i].app_date) %>
+                                                    <% div = div.split(" ") %> 
+                                                    <span class="abc dates<%= i %>"><%= div[0] + " " + div[1] + " " + div[2] + " " + div[3] %></span>
+                                                </div>
+                                                <div class="col-2">
+                                                    <span class="abc times<%= i %>"><%= mh[i].app_time %></span>
+                                                </div>
+                                                <div class="col-2">
+                                                    <span class="abc"><%= mh[i].symptoms %></span>
+                                                </div>
+                                                <div class="col-2 ">                   
+                                                    <button id="<%= i %>" name="accept" type="button" class="btns btn btn-success button accept px-1 " >Accept</button>&nbsp;
+                                                    <button id="<%= i %>" name="decline" type="button" class="btns btn btn-danger button decline px-1" >Decline</button> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        <% }; %>
+                      <% } %>
+                    </div>
+                    <div id="menu3" class="container tab-pane fade contain"><br>
+                        <div class="shadow-pop-tl mb-5 mt-2" data-aos="zoom-in-down" data-aos-duration="1200" style="background: #042542;
+                        color: white; width:350px; padding-left: 5px ; padding-bottom: 3px; padding-top: 5px;">
+                            <h2>Todays Appointment</h2>
+                        </div>
+                        <% if (top.length === 0) { %>
+                            <div  class="card shadow-sm" style="width: 90%; text-align: center;border-radius: 10px ;margin-left: 10%;"data-aos="zoom-in-down" data-aos-duration="1000">
+                                <div class="card-body">
+                                    <div class="card-text txAn1" >
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h5>No Pending Appointments</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <%} else { %>
+                            <div  class="card crd1 ml-5 text-light shadow-sm mb-4" style="width: 98%;border-radius: 10px;  margin-top: 50px; background: linear-gradient(to right,#000046, #1cb5e0 ); "data-aos="zoom-in-down" data-aos-duration="1000">
+                                <div class="card-body crd12">
+                                    <div class="card-text crd13 txAn1" >
+                                        <div class="row crd14">
+                                            <div class="col-2" style="text-align: center; ">
+                                                <span class="fo text-light" data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="200" data-aos-offset="0">ID</span>
+                                            </div>
+                                            <div class="col-2" style="text-align: center; ">
+                                                <span class="fo text-light" data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="200" data-aos-offset="0">Patient Name</span>
+                                            </div>
+                                            <div class="col-2" style="text-align: center; ">
+                                                <span class="fo text-light" data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="200" data-aos-offset="0">Date</span>
+                                            </div>
+                                            <div class="col-2" style="text-align: center; ">
+                                                <span class="fo text-light"data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="400" data-aos-offset="0">Time</span>
+                                            </div>
+                                            <div class="col-2" style="padding-left: 20px; ">
+                                                <span class="fo text-light" data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="600" data-aos-offset="0">View</span>
+                                            </div>
+                                            <div class="col-2">
+                                                <span class="fo text-light"data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-delay="800" data-aos-offset="0">Action</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% for (var i = 0; i < top.length;  i++ ) { %>
+                                <% if ((top[i].checked!==1)&&(top[i].checked!==0)) { %>
+                                    <div  class="card crd2 ml-5 shadow-sm my-2 row<%= i %>" style="width: 98%; border-radius: 10px; " data-aos="zoom-in-down" data-aos-duration="1000">
+                                        <div class="card-body crd22">
+                                            <div class="card-text crd23 txAn1" >
+                                                <div class="row crd24">
+                                                    <div class="col-2" style="text-align: center;">
+                                                        <span class="fo id<%= i %>"><%= top[i].pat_reg_id %></span>
+                                                    </div> 
+                                                    <div class="col-2" style="text-align: center;">
+                                                        <% for (var j = 0; j < ba1.length;  j++ ) { %>  
+                                                            <% if (top[i].pat_reg_id === ba1[j].reg_id) { %>
+                                                                <span class="fo name<%= i %>"><%= ba1[j].fname %> <%= ba1[j].lname %></span>
+                                                            <% } %>    
+                                                        <% }; %> 
+                                                    </div>                     
+                                                    <div class="col-2" style="text-align: center;">
+                                                        <% var div = String(top[i].app_date) %>
+                                                        <% div = div.split(" ") %> 
+                                                        <span class="fo date<%= i %>"><%= div[0] + " " + div[1] + " " + div[2] + " " + div[3] %></span>
+                                                    </div>
+                                                    <div class="col-2" style="text-align: center;">
+                                                        <span class="fo"><%= top[i].app_time %></span>
+                                                    </div> 
+                                                    <div class="col-1" style="text-align: center;">
+                                                        <div>
+                                                            <button class="btn btn-secondary view" name="view" id="<%= i %>" type="button">     
+                                                                <span class="bt" style="text-decoration: none; color: white;">View</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3" style="text-align: center;">
+                                                        <button class="btn btn-success checked" name="checked" id="<%= i %>" data-toggle="modal" data-target="#myModal" type="button">     
+                                                            <span class="bt" style="text-decoration: none; color: white;">Checked</span>
+                                                        </button>
+                                                        <button class="btn btn-danger delete ml-1" type="button" name="del" id="<%= i %>">     
+                                                            <span class="bt" style="padding-left:5px;padding-right:5px;text-decoration: none; color: white;">Delete</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="doc_show<%= i %>"></div>
+                                    </div>
+                                <% }; %>
+                            <% }; %>
+                        <% } %>
+                        <div class="modal fade" id="myModal" data-backdrop="static">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">
+                                            <img src="../public/images/CT.png" width="30" height="30"> CONFIRMATION
+                                        </h5>
+                                        <!-- <span class="close closeBtn" data-dismiss="modal">
+                                            &times;
+                                        </span> -->
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action='' method="POST" class="feeclass" id="feeclass">
+                                            <div class="form-group row">
+                                                <label for="fees" class="col-md-4 col-form-label">
+                                                    Fee per Session<span class="r">*</span>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">₹</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="fees" id="fees" placeholder="Enter total amount" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-success" type="submit" id="submit">YES</button>
+                                                <!-- <button class="btn btn-danger" data-dismiss="modal">NO</button> -->
+                                            </div>
+                                        </form>   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        <%} else { %>
+            <div class="container-fluid">
+                <div style="margin-top: 90px;" class="bs-example">
+                    <ul class="nav nav-tabs" role="tablist" >
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home" style="font-size: 18px;">Doctor Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu1" style="font-size: 18px;">Final List</a>
+                        </li>
+                    </ul>         
+                </div>
+                <div class="tab-content">
+                    <div id="home" class="tab-pane active container rec11 rec12">
+                        <div class="shadow-pop-tl mb-4 mt-2" data-aos="zoom-in-down" data-aos-duration="1200" style="background: #042542;
+                        color: white; width:350px; padding-left: 5px ; padding-bottom: 3px; padding-top: 5px;">
+                            <h2>Doctor Details</h2>
+                        </div>
+                        <div class="row rec13 ml-3">
+                            <% for (var i = 0; i < ba1.length;  i++ ) {%>
+                                <% for (var j = 0; j < ba2.length;  j++ ) {%>
+                                    <% if (ba1[i].reg_id===ba2[j].reg_id) { %>
+                                        <div class="col-md-6 col-lg-6" data-aos="zoom-in-down" data-aos-duration="900">
+                                            <div class="card rec14 mx-30" style="border-radius:10px;">
+                                                <div class="card-body rec15">                      
+                                                    <div class="card-title rec16">
+                                                        <div class="col-12" data-aos="zoom-in-up" data-aos-duration="1000">
+                                                            <h4 class="text-light"><%= ba1[i].reg_id %></h4><br>
+                                                            <h6 class="text-light">Dr <%= ba1[i].fname %>  <%= ba1[i].lname %></h6>
+                                                            <h6 class="text-light"><%= ba2[j].degree %></h6>
+                                                            <h6 class="text-light"><%= ba2[j].specialization %></h6> 
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    
+                                                    <div class="rec17">
+                                                        <div class="col-12">                             
+                                                            <h5 data-aos="zoom-in-left" data-aos-duration="1100">Availability Time</h5>
+                                                            <hr style="width: 45%;margin-left:27%; color: black;">
+                                                            <div class="rec18" data-aos="zoom-in-left" data-aos-duration="1100">
+                                                                <h6>Weekdays:</h6>  <%= ba2[j].weekday_from  %> to <%= ba2[j].weekday_to %><br>
+                                                                <h6>Saturday:</h6>  <%= ba2[j].sat_from %> to <%= ba2[j].sat_to %><br>
+                                                                <h6>Sunday:</h6>  <%= ba2[j].sun_from %> to <%= ba2[j].sun_to %>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    <%}%> 
+                                <%}%>
+                            <%}%>
+                        </div>
+                    </div>             
+                    <div id="menu1" class="container tab-pane fade"><br>
+                        <div class="shadow-pop-tl mb-5 mt-2" data-aos="zoom-in-down" data-aos-duration="1200" style="background: #042542;
+                        color: white; width:350px; padding-left: 5px ; padding-bottom: 3px; padding-top: 5px;">
+                            <h2>Todays Appointments</h2>
+                        </div>
+                        <% if (mh.length===0) { %>
+                            <div  class="card shadow-sm" style="width: 90%; text-align: center;border-radius: 10px ;margin-left: 10%;"data-aos="zoom-in-down" data-aos-duration="1000">
+                                <div class="card-body">
+                                    <div class="card-text txAn1" >
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h5>No Appointments</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <%} else { %>
+                            <div class="card-header mt-5 ml-5 mb-3 bckgrd rounded" data-aos="zoom-in-down" data-aos-duration="1000" style="width: 98%;">
+                                <div class="row text-center text-light txAn1" style="padding: 1%;">
+                                    <div class="col-2">
+                                        <span class="fh text-light">Reg ID</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <span class="fh text-light">Doctor Name</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <span class="fh text-light">Specialization</span>
+                                    </div>
+                                    <div class="col-2">
+                                        <span class="fh text-light">View</span>
+                                    </div>
+                                </div>
+                            </div>
+                        <%}%> 
+                        <% for (var i = 0; i < mh.length;  i++ ) { %>
+                            <% for (var x = 0; x < ba1.length;  x++ ) { %>
+                                <% if (ba1[x].reg_id===mh[i].doc_reg_id) { %>
+                                    <div class="card mt-3 ml-5 mb-3 cdr" data-aos="zoom-in-down" data-aos-duration="1300" style="width: 98%;">
+                                        <div>
+                                            <div class="row text-center txAn1" style="padding: 1.6%;">
+                                                <div class="col-2">
+                                                    <span class="fh docreg<%= i %>"><%= ba1[x].reg_id %></span>
+                                                </div>
+                                                <div class="col-4">
+                                                    <span class="fh">Dr. <%= ba1[x].fname %> <%= ba1[x].lname %></span>
+                                                </div>
+                                                <div class="col-4">
+                                                    <span class="fh"><%= ba2[x].specialization %></span>
+                                                </div>
+                                                <div class="col-2">
+                                                    <button type="button" class="btn btn-secondary doc_name" id="<%= i %>" >View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dat<%= i %>" style="display: none;">
+                                            <div class="card-header mt-1 mb-3 bckgrdop rounded" style="margin-left: 15px; margin-right: 15px;">
+                                                <div class="row text-center" style="padding: 0.6%;">
+                                                    <div class="col-2 text-light">
+                                                        <span class="fh">Reg ID</span>
+                                                    </div>
+                                                    <div class="col-4 text-light">
+                                                        <span class="fh">Patient Name</span>
+                                                    </div>
+                                                    <div class="col-2 text-light">
+                                                        <span class="fh">Today's Date</span>
+                                                    </div>
+                                                    <div class="col-2 text-light">
+                                                        <span class="fh" style="margin-left: 30px;">Timings</span>
+                                                    </div>
+                                                    <div class="col-2 text-light">
+                                                        <span class="fh" style="margin-left: 60px;">Reciept</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% for (var j = 0; j < pd.length;  j++ ) { %>
+                                                <% if ((mh[i].doc_reg_id===pd[j].doc_reg_id)) { %>
+                                                    <div class="gp">
+                                                        <div class="row my-2 text-center" id="<%= i %>">
+                                                            <div class="col-2">
+                                                                <span class="f patreg<%= j %>" style="margin-left: 50px;"><%= pd[j].pat_reg_id %></span>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <% for (var y = 0; y < md.length;  y++ ) { %>
+                                                                    <% if ((pd[j].pat_reg_id===md[y].reg_id)) { %>
+                                                                        <span class="f"><%= md[y].title %> <%= md[y].fname %> <%= md[y].lname %></span>
+                                                                    <%}%> 
+                                                                <%}%>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <% var div = String(pd[j].app_date) %>
+                                                                <% div = div.split(" ") %>       
+                                                                <span class="f dte<%= j %>"><%= div[0] + " " + div[1] + " " + div[2] + " " + div[3] %></span>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <span class="f"><%= pd[j].app_time %></span>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <button type="button" class="btn btn-outline-primary reciept" id="<%= j %>">Reciept</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <%}%> 
+                                            <% } %>  
+                                        </div>
+                                    </div>
+                                <%}%> 
+                            <%}%> 
+                        <% } %>
+                        <script src="../public/javascripts/toggler.js"></script>
+                    </div>
+                </div>   
+            </div>
+        <% } %>
+    <% } %>
+<!--     <script src="../../public/javascripts/date.js"></script>
+ -->    <script src="../../public/javascripts/exchange.js"></script>
+    <script src="../../public/javascripts/aceordec.js"></script>
+    <script src="../../public/javascripts/doc_r.js"> </script>
+    <script src="../../public/javascripts/tab-re.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+<%- include('partials/footer'); %>

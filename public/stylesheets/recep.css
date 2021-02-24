@@ -1,0 +1,142 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ .rec11 {
+   padding-top: 50px;
+   }
+  
+   .rec14 {
+    background: #fff;
+    display: inline-block;
+    margin:1.3rem;
+    width: 90%;
+    }
+
+    .rec14:hover{
+        transform: translateY(-10px);
+        transition: 0.5s;
+    }
+
+    /*.co:before{
+        content: '';
+        position: absolute;
+        width: 190px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to right,  #07448a, #a8dbac);
+        border-radius: 10px;
+        clip-path: ellipse(75% 60% at 25% 50%);
+    }*/
+    
+    .rec14:before{
+        content: '';
+        position: absolute;
+        width: 250px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to right,  #2673ca, #95f79e);
+        border-radius: 10px;
+        clip-path: ellipse(75% 60% at 25% 50%);
+    }
+
+    .rec17{
+        left: 26%;
+        position: relative;
+        text-align: center;
+    }
+
+    .rec16{
+        position:absolute;
+        left:2%;
+        top:15%;
+        color: antiquewhite;
+        justify-content: center;
+        align-items: left;
+        text-align: center;
+    }
+    
+   .rec15{
+       border-radius: 10px;
+       overflow:hidden;
+       text-align: center;
+       box-shadow: 0px 15px 15px -8px rgba(0,0,0,0.5);
+   }
+
+   .rec15 .rec16 h4{
+       font-size: 28px;
+   }
+
+   .rec15 .rec16 h6{
+       font-size: 20px;
+   }
+
+   .rec15 .rec17 p{
+    font-size: 18px;
+    }
+
+   .rec15 .rec17 h5{
+       font-size: 18px;
+   }
+
+   .rec15 .rec17 h4{
+       font-size: 20px;
+   }
+
+    /*.info{
+        left: 30%;
+        position: relative;
+        text-align: left;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .card-title{
+        position:absolute;
+        left:2%;
+        top:20%;
+        color: antiquewhite;
+        justify-content: center;
+        align-items: left;
+        text-align: left;
+    }
+    
+   .card-body{
+       border-radius: 10px;
+       overflow:hidden;
+       text-align: center;
+       box-shadow: 0px 15px 15px -8px rgba(0,0,0,0.5);
+   }
+
+   .card-body p{
+       font-size: 25px;
+   }
+
+   .card-title h5{
+       font-size: 18px;
+   }
+
+   .card-body h6{
+       font-size: 19px;
+   }
+
+   .card-body h4 {
+   text-transform: uppercase;
+   font-size: 15px;
+   }
+
+   .card-body h5{
+       font-size: 16px;
+   }
+   */
+   
+   @media (max-width: 800px){
+       .mx-30{
+           margin-bottom: 30px;
+       }
+   }
+   

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../public/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../public/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../public/images/favicon-16x16.png">
+  <link rel="manifest" href="../../public/images/site.webmanifest">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+  <script src="../../public/javascripts/form.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+  <a class="navbar-brand" href="/" style="animation: yourAnimation 1s 1 0s linear; padding: 0;"><img src="../../public/images/navlog.png" alt="logo" style="height: 40px;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item " style="animation: yourAnimation 1s 1 0s linear;">
+        <a class="nav-link" href="/" style="font-size: 18px;">Home</a>
+      </li>
+      <% if (isAuthenticated) { %>
+        <li class="nav-item" style="animation: yourAnimation 1s 1 0s linear;">
+          <a class="nav-link" href="/dashboard" style="font-size: 18px;">Dashboard</a>
+        </li>
+        <li class="nav-item" style="animation: yourAnimation 1s 1 0s linear;">
+          <a class="nav-link" href="/logout" onclick="localStorage.removeItem('activeTab');" style="font-size: 18px;">Logout</a>
+        </li>
+      <%} else { %>
+        <li class="nav-item dropdown" style="animation: yourAnimation 1s 1 0s linear;">
+          <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown" style="font-size: 18px;">Register</a>
+           <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="/patient/register" style="font-size: 18px;">Patient</a></li>
+             <li><a class="dropdown-item" href="/doctor/register" style="font-size: 18px;">Doctor</a></li>
+           </ul>
+        </li>
+        <li class="nav-item" style="animation: yourAnimation 1s 1 0s linear;">
+          <a class="nav-link" href="/login" style="font-size: 18px;">Login</a>
+        </li>
+      <% } %>     
+    </ul>
+  </div>  
+</nav>
+

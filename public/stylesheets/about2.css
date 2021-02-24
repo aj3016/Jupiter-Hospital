@@ -1,0 +1,41 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: aliceblue;
+}
+
+.navbar .nav-item .dropdown-menu{ display: none; }
+.navbar .nav-item:hover .nav-link{ color: #fff;  }
+.navbar .nav-item:hover .dropdown-menu{ display: block; }
+.navbar .nav-item .dropdown-menu{ margin-top:0; }
+
+.navbar{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #333333;
+}
+.nav-item{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.navbar.scrolled{
+    background-color: #333333 !important;
+    transition: background-color 200ms linear;
+}
+.feet{
+    background-color: #333333;
+    width: 100%;
+    height: 200px;
+}
+@keyframes yourAnimation{
+    0%{
+        transform: rotate(0deg) translateX(0) translateY(10%);
+        opacity: 0;
+    }
+    50%{
+        transform: rotate(0deg) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}

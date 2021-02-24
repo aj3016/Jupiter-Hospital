@@ -1,0 +1,214 @@
+<link rel="stylesheet" href="../public/stylesheets/about2.css">
+<!-- <link rel="stylesheet" href="../public/stylesheets/lore.css">-->
+<!-- <link rel="stylesheet" href="../public/stylesheets/mdl.css"> -->
+<!-- <link rel="stylesheet" href="../public/stylesheets/per.css">-->
+<div class="container-fluid">
+    <div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#n<%= newtip[0].i %>home" style="font-size: 17px;">Medical Details</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#n<%= newtip[0].i %>menu1" style="font-size: 17px;">Medical History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#n<%= newtip[0].i %>menu2" style="font-size: 17px;">New Prescription</a>
+            </li>
+        </ul>         
+    </div>
+    <div class="tab-content">
+        <div id="n<%= newtip[0].i %>home" class="container tab-pane active crd3"><br>
+            <div class="card mx-auto crd32 shadow-lg" style="  border-top-right-radius: 30px ; border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">            
+                <div class="card-body crd33">
+                    <div class="row crd34">    
+                        <div class="col-lg-5 mt-5">                      
+                            <div class="title shadow-pop-tl" data-aos="zoom-in-down" data-aos-duration="1200">
+                                <h2>Medical Details</h2>
+                            </div>
+                            <div class="main">
+                                <img alt=" Responsive image" src="../public/images/undraw_doctor_kw5l.svg" class="mt-7 mb-5 img-fluid mx-auto">
+                            </div> 
+                        </div>
+
+
+                        <div class="col-lg-7">
+                            <div class="row mt-2" >
+                                <div class=" col-lg-6 col-md-5 col-5" >
+                                    <i class="fa fa-id-badge" aria-hidden="true"></i>
+                                    <strong class="margin-10px-left fo">ID</strong>
+                                </div> 
+                                <div class="col-lg-6 col-7  " >
+                                    <p class="margin-10px-right txAn fo"><%= q1[0].reg_id %></p>
+                                </div>
+                            </div>
+
+                            <hr>
+                                   
+                            <div class="row mt-2">
+                                <div class="col-md-5 col-lg-6 col-5">
+                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                    <strong class="margin-10px-left fo" >Name</strong>
+                                </div>
+                                <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                    <p class="margin-10px-right txAn fo"><%= q1[0].title + " " + q1[0].fname + " " + q1[0].lname %></p>
+                                </div>
+                            </div>
+                                
+                            <hr>
+
+                            <div class="row mt-2">
+                                <div class="col-md-5 col-lg-6 col-5">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <strong class="margin-10px-left fo" >Age</strong>
+                                </div>
+                                <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                    <p class="margin-10px-right txAn fo"><%= q0[0].age %></p>
+                                </div>
+                            </div>
+                                
+                            <hr>
+
+                            <div class="row mt-2">
+                                <div class="col-md-5 col-lg-6 col-5">
+                                    <i class="fa fa-genderless" aria-hidden="true"></i>
+                                    <strong class="margin-10px-left fo" >Gender</strong>
+                                </div>
+                                <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                    <p class="margin-10px-right txAn fo"><%= q2[0].gender %></p>
+                                </div>
+                            </div>
+                                
+                            <hr>
+                                        
+                            <div class="row mt-2">
+                                <div class="col-md-5 col-lg-6 col-5">
+                                    <i class="fa fa-tint" aria-hidden="true"></i>
+                                    <strong class="margin-10px-left fo" >Blood Group</strong>
+                                </div>
+                                <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                    <p class="margin-10px-right txAn fo"><%= q2[0].bg %></p>
+                                </div>
+                            </div>
+                
+                    
+                            <hr>
+                    
+                            <div class="row mt-2">
+                                <div class="col-md-5 col-lg-6 col-5">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <strong class="margin-10px-left fo">Weight</strong>
+                                </div>
+                                <div class="col-md-7 col-lg-6 col-7 margin-10px-right" >
+                                    <p class="margin-10px-right txAn fo"><%= q2[0].weight %></p>
+                                </div>
+                            </div>
+                    
+                            <hr>
+                    
+                
+                            <div class="row mt-2">
+                                <div class="col-md-5 col-lg-6 col-5">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <strong class="margin-10px-left fo" >Height</strong>
+                                </div>
+                                <div class="col-md-7 col-lg-6 col-7 margin-10px-right" >
+                                    <p class="margin-10px-right txAn fo"><%= q2[0].height %></p>
+                                </div>
+                            </div>
+                        
+                            <hr>
+                        
+                            <div class="row mt-2">
+                                <div class="col-md-5 col-lg-6 col-5">
+                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                    <strong class=" xs-margin-four-left fo" >Allergies</strong>
+                                </div>
+                                <div class="col-md-7 col-lg-6 col-7 margin-10px-right">
+                                    <p class="margin-10px-right txAn fo"><%= q2[0].allergies %></p>
+                                </div>  
+                            </div>
+
+                        </div>
+                    </div>       
+                </div>       
+            </div>
+        </div>
+        <div id="n<%= newtip[0].i %>menu1" class="container tab-pane fade"><br>
+            <div class="shadow-pop-tl mb-5 mt-2" data-aos="zoom-in-down" data-aos-duration="1200" style="background: #042542;color: white; width:350px; padding-left: 5px ; padding-bottom: 3px; padding-top: 5px;">
+                <h2>Medical History</h2>
+            </div>
+            <% if (q3.length === 0) { %>
+                <div  class="card shadow-sm mb-3" style="width: 98%; text-align: center;border-radius: 10px ;margin-left: 3%;">
+                    <div class="card-body">
+                        <div class="card-text txAn1" >
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>No Previous Medical History</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%} else { %>
+                <% for (var x = 0; x < q4.length;  x++ ) { %>
+                    <div class="card mt-3 mb-3 mx-auto crd4 rounded">
+                        <div class="row crd42">
+                            <div class="col-md-4">
+                                <div class="card-header crd43 rounded py-4">
+                                    <div class="fh text-light">
+                                        <% var div = String(q4[x].issue_date) %>
+                                        <% div = div.split(" ") %>
+                                        <span><i class="fa fa-clock-o"></i> <%= div[0] + " " + div[1] + " " + div[2] + " " + div[3] %></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 p-4">
+                                <% for (var i = 0; i < q3.length;  i++ ) { %>
+                                    <% if (q4[x].issue_date.toString() === q3[i].issue_date.toString()) { %>
+                                        <div class="row txAn1">
+                                            <div class="col-md-1 mt-1">
+                                                <img src="../public/images/pill8.png" alt="pill" width="20" height="20">
+                                            </div>
+                                            <div class="col-md-5 mt-1 text-center">
+                                                <span class="f"><%= q3[i].medicine %></span>
+                                            </div>
+                                            <div class="col-md-6 mt-1 text-center">
+                                                <span class="f"><%= q3[i].dossage %></span>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    <% }; %>
+                                <% }; %>                                   
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %> 
+        </div>
+        <div id="n<%= newtip[0].i %>menu2" class="container tab-pane fade"><br>
+            <form action="/dashboard/patd/sel/<%= q1[0].reg_id %>" method="POST">
+                <div class="row crd5">
+                    <div class="col-10 fo">
+                        <div class="shadow-pop-tl " data-aos="zoom-in-down" data-aos-duration="1200" style="background: #042542;color: white; width:275px;">
+                            <h2>New Prescription</h2>
+                        </div>
+                    </div>
+                    <div class="col-1 fh">
+                        <div class="edit">
+                            <button style="width: 50px;margin-left:30%;" class="btn btn-primary btn-sm add_form" type="button">     
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>  
+                    </div>
+                </div>
+                <div class="details"></div>
+                <div class="pres_form"></div>
+                <div class="save_pres"></div>
+            </form>
+        </div>
+    </div>   
+</div>
+
+
+<script src="../public/javascripts/prescription.js"></script>
+ 

@@ -1,0 +1,36 @@
+.cd {
+    box-shadow: 1px 8px 20px rgba(39, 39, 39, 0.3);
+    /* overflow-x: auto; */
+}
+
+.ctr {
+    
+}
+.r {
+    color: red;
+}
+
+label:hover {
+    color: #095484;
+}
+
+.formG input:hover, .formG select:hover {
+    border: 1px solid transparent;
+    box-shadow: 0 0 6px 0 #095484;
+}
+
+textarea:hover {
+    border: 1px solid transparent;
+    box-shadow: 0 0 6px 0 #095484;
+    color: #095484;
+}
+
+.formG textarea{
+    resize: none;
+    max-width: 100%;
+    outline: none;
+}
+
+.pd {
+    padding: 50px;
+}

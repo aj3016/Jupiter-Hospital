@@ -1,0 +1,1530 @@
+<%- include('partials/navbar'); %>
+<link rel="stylesheet" href="../../public/stylesheets/about2.css">
+<link rel="stylesheet" href="../../public/stylesheets/DAF.css">
+
+<div class="container cntr">
+
+    <div class="card mx-auto crd">
+
+        <div class="card-header text-left cardHead">
+
+            <h2>
+                Doctors Work Details
+            </h2>
+
+            <p class="text-muted">
+                Edit the below form accurately.
+            </p>
+
+        </div>
+
+        <div class="card-body">
+
+            <form action="put/<%= work[0].reg_id %>" method="POST" id="myForm" class="formG">
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">DEGREE<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <select class="form-control" name="degree" id="degree" required>
+                            <% if (work[0].degree==="md") { %>
+                                <option value="" disabled hidden>---Select---</option>
+                                <option value="md" selected>MD</option>
+                                <option value="ms">MS</option>
+                                <option value="mbbs">MBBS</option>
+                            <%} else { %>
+                                <% if (work[0].degree==="ms") { %>
+                                    <option value="" disabled hidden>---Select---</option>
+                                    <option value="md">MB</option>
+                                    <option value="ms" selected>MS</option>
+                                    <option value="mbbs">MBBS</option>
+                                <%} else { %>
+                                    <option value="" disabled hidden>---Select---</option>
+                                    <option value="md">MB</option>
+                                    <option value="ms">MS</option>
+                                    <option value="mbbs" selected>MBBS</option>
+                                <% } %>
+                            <% } %>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">
+                        SPECIALIZATIONS<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <select name="specializations" id="specializations" class="form-control" required>
+                            <% if (work[0].specialization==="Audiologist") { %>
+                                <option value="" disabled hidden>---Select---</option>
+                                <option value="Audiologist" selected>Audiologist</option>
+                                <option value="Cardiologist">Cardiologist</option>
+                                <option value="Dentist">Dentist</option>
+                                <option value="Dermatologist">Dermatologist</option>
+                                <option value="Endocrinologist">Endocrinologist</option>
+                                <option value="Epidemiologists">Epidemiologists</option>
+                                <option value="ENT Specialist">ENT Specialist</option>
+                                <option value="Family Practitioner">Family Practitioner</option>
+                                <option value="Gastroenterologist">Gastroenterologist</option>
+                                <option value="Gynecologist">Gynecologist</option>
+                                <option value="General Psychiatrist">General Psychiatrist</option>
+                                <option value="Orthopedist">Orthopedist</option>
+                                <option value="Pediatrician">Pediatrician</option>
+                                <option value="Physiologists">Physiologists</option>
+                                <option value="Urologist">Urologist</option>
+                            <%} else { %>
+                                <% if (work[0].specialization==="Cardiologist") { %>
+                                    <option value="" disabled hidden>---Select---</option>
+                                    <option value="Audiologist" >Audiologist</option>
+                                    <option value="Cardiologist" selected>Cardiologist</option>
+                                    <option value="Dentist">Dentist</option>
+                                    <option value="Dermatologist">Dermatologist</option>
+                                    <option value="Endocrinologist">Endocrinologist</option>
+                                    <option value="Epidemiologists">Epidemiologists</option>
+                                    <option value="ENT Specialist">ENT Specialist</option>
+                                    <option value="Family Practitioner">Family Practitioner</option>
+                                    <option value="Gastroenterologist">Gastroenterologist</option>
+                                    <option value="Gynecologist">Gynecologist</option>
+                                    <option value="General Psychiatrist">General Psychiatrist</option>
+                                    <option value="Orthopedist">Orthopedist</option>
+                                    <option value="Pediatrician">Pediatrician</option>
+                                    <option value="Physiologists">Physiologists</option>
+                                    <option value="Urologist">Urologist</option>
+                                <%} else { %>
+                                    <% if (work[0].specialization==="Dentist") { %>
+                                        <option value="" disabled hidden>---Select---</option>
+                                        <option value="Audiologist" >Audiologist</option>
+                                        <option value="Cardiologist" >Cardiologist</option>
+                                        <option value="Dentist" selected>Dentist</option>
+                                        <option value="Dermatologist">Dermatologist</option>
+                                        <option value="Endocrinologist">Endocrinologist</option>
+                                        <option value="Epidemiologists">Epidemiologists</option>
+                                        <option value="ENT Specialist">ENT Specialist</option>
+                                        <option value="Family Practitioner">Family Practitioner</option>
+                                        <option value="Gastroenterologist">Gastroenterologist</option>
+                                        <option value="Gynecologist">Gynecologist</option>
+                                        <option value="General Psychiatrist">General Psychiatrist</option>
+                                        <option value="Orthopedist">Orthopedist</option>
+                                        <option value="Pediatrician">Pediatrician</option>
+                                        <option value="Physiologists">Physiologists</option>
+                                        <option value="Urologist">Urologist</option>
+                                    <%} else { %>
+                                        <% if (work[0].specialization==="Dermatologist") { %>
+                                            <option value="" disabled hidden>---Select---</option>
+                                            <option value="Audiologist" >Audiologist</option>
+                                            <option value="Cardiologist" >Cardiologist</option>
+                                            <option value="Dentist" >Dentist</option>
+                                            <option value="Dermatologist" selected>Dermatologist</option>
+                                            <option value="Endocrinologist">Endocrinologist</option>
+                                            <option value="Epidemiologists">Epidemiologists</option>
+                                            <option value="ENT Specialist">ENT Specialist</option>
+                                            <option value="Family Practitioner">Family Practitioner</option>
+                                            <option value="Gastroenterologist">Gastroenterologist</option>
+                                            <option value="Gynecologist">Gynecologist</option>
+                                            <option value="General Psychiatrist">General Psychiatrist</option>
+                                            <option value="Orthopedist">Orthopedist</option>
+                                            <option value="Pediatrician">Pediatrician</option>
+                                            <option value="Physiologists">Physiologists</option>
+                                            <option value="Urologist">Urologist</option>
+                                        <%} else { %>
+                                            <% if (work[0].specialization==="Endocrinologist") { %>
+                                                <option value="" disabled hidden>---Select---</option>
+                                                <option value="Audiologist" >Audiologist</option>
+                                                <option value="Cardiologist" >Cardiologist</option>
+                                                <option value="Dentist" >Dentist</option>
+                                                <option value="Dermatologist" >Dermatologist</option>
+                                                <option value="Endocrinologist" selected>Endocrinologist</option>
+                                                <option value="Epidemiologists">Epidemiologists</option>
+                                                <option value="ENT Specialist">ENT Specialist</option>
+                                                <option value="Family Practitioner">Family Practitioner</option>
+                                                <option value="Gastroenterologist">Gastroenterologist</option>
+                                                <option value="Gynecologist">Gynecologist</option>
+                                                <option value="General Psychiatrist">General Psychiatrist</option>
+                                                <option value="Orthopedist">Orthopedist</option>
+                                                <option value="Pediatrician">Pediatrician</option>
+                                                <option value="Physiologists">Physiologists</option>
+                                                <option value="Urologist">Urologist</option>
+                                            <%} else { %>
+                                                <% if (work[0].specialization==="Epidemiologists") { %>
+                                                    <option value="" disabled hidden>---Select---</option>
+                                                    <option value="Audiologist" >Audiologist</option>
+                                                    <option value="Cardiologist" >Cardiologist</option>
+                                                    <option value="Dentist" >Dentist</option>
+                                                    <option value="Dermatologist" >Dermatologist</option>
+                                                    <option value="Endocrinologist" >Endocrinologist</option>
+                                                    <option value="Epidemiologists" selected>Epidemiologists</option>
+                                                    <option value="ENT Specialist">ENT Specialist</option>
+                                                    <option value="Family Practitioner">Family Practitioner</option>
+                                                    <option value="Gastroenterologist">Gastroenterologist</option>
+                                                    <option value="Gynecologist">Gynecologist</option>
+                                                    <option value="General Psychiatrist">General Psychiatrist</option>
+                                                    <option value="Orthopedist">Orthopedist</option>
+                                                    <option value="Pediatrician">Pediatrician</option>
+                                                    <option value="Physiologists">Physiologists</option>
+                                                    <option value="Urologist">Urologist</option>
+                                                <%} else { %>
+                                                    <% if (work[0].specialization==="ENT Specialist") { %>
+                                                        <option value="" disabled hidden>---Select---</option>
+                                                        <option value="Audiologist" >Audiologist</option>
+                                                        <option value="Cardiologist" >Cardiologist</option>
+                                                        <option value="Dentist" >Dentist</option>
+                                                        <option value="Dermatologist" >Dermatologist</option>
+                                                        <option value="Endocrinologist" >Endocrinologist</option>
+                                                        <option value="Epidemiologists" >Epidemiologists</option>
+                                                        <option value="ENT Specialist" selected>ENT Specialist</option>
+                                                        <option value="Family Practitioner">Family Practitioner</option>
+                                                        <option value="Gastroenterologist">Gastroenterologist</option>
+                                                        <option value="Gynecologist">Gynecologist</option>
+                                                        <option value="General Psychiatrist">General Psychiatrist</option>
+                                                        <option value="Orthopedist">Orthopedist</option>
+                                                        <option value="Pediatrician">Pediatrician</option>
+                                                        <option value="Physiologists">Physiologists</option>
+                                                        <option value="Urologist">Urologist</option>
+                                                    <%} else { %>
+                                                        <% if (work[0].specialization==="Family Practitioner") { %>
+                                                            <option value="" disabled hidden>---Select---</option>
+                                                            <option value="Audiologist" >Audiologist</option>
+                                                            <option value="Cardiologist" >Cardiologist</option>
+                                                            <option value="Dentist" >Dentist</option>
+                                                            <option value="Dermatologist" >Dermatologist</option>
+                                                            <option value="Endocrinologist" >Endocrinologist</option>
+                                                            <option value="Epidemiologists" >Epidemiologists</option>
+                                                            <option value="ENT Specialist" >ENT Specialist</option>
+                                                            <option value="Family Practitioner" selected>Family Practitioner</option>
+                                                            <option value="Gastroenterologist">Gastroenterologist</option>
+                                                            <option value="Gynecologist">Gynecologist</option>
+                                                            <option value="General Psychiatrist">General Psychiatrist</option>
+                                                            <option value="Orthopedist">Orthopedist</option>
+                                                            <option value="Pediatrician">Pediatrician</option>
+                                                            <option value="Physiologists">Physiologists</option>
+                                                            <option value="Urologist">Urologist</option>
+                                                        <%} else { %>
+                                                            <% if (work[0].specialization==="Gastroenterologist") { %>
+                                                                <option value="" disabled hidden>---Select---</option>
+                                                                <option value="Audiologist" >Audiologist</option>
+                                                                <option value="Cardiologist" >Cardiologist</option>
+                                                                <option value="Dentist" >Dentist</option>
+                                                                <option value="Dermatologist" >Dermatologist</option>
+                                                                <option value="Endocrinologist" >Endocrinologist</option>
+                                                                <option value="Epidemiologists" >Epidemiologists</option>
+                                                                <option value="ENT Specialist" >ENT Specialist</option>
+                                                                <option value="Family Practitioner" >Family Practitioner</option>
+                                                                <option value="Gastroenterologist" selected>Gastroenterologist</option>
+                                                                <option value="Gynecologist">Gynecologist</option>
+                                                                <option value="General Psychiatrist">General Psychiatrist</option>
+                                                                <option value="Orthopedist">Orthopedist</option>
+                                                                <option value="Pediatrician">Pediatrician</option>
+                                                                <option value="Physiologists">Physiologists</option>
+                                                                <option value="Urologist">Urologist</option>
+                                                            <%} else { %>
+                                                                <% if (work[0].specialization==="Gynecologist") { %>
+                                                                    <option value="" disabled hidden>---Select---</option>
+                                                                    <option value="Audiologist" >Audiologist</option>
+                                                                    <option value="Cardiologist" >Cardiologist</option>
+                                                                    <option value="Dentist" >Dentist</option>
+                                                                    <option value="Dermatologist" >Dermatologist</option>
+                                                                    <option value="Endocrinologist" >Endocrinologist</option>
+                                                                    <option value="Epidemiologists" >Epidemiologists</option>
+                                                                    <option value="ENT Specialist" >ENT Specialist</option>
+                                                                    <option value="Family Practitioner" >Family Practitioner</option>
+                                                                    <option value="Gastroenterologist" >Gastroenterologist</option>
+                                                                    <option value="Gynecologist" selected>Gynecologist</option>
+                                                                    <option value="General Psychiatrist">General Psychiatrist</option>
+                                                                    <option value="Orthopedist">Orthopedist</option>
+                                                                    <option value="Pediatrician">Pediatrician</option>
+                                                                    <option value="Physiologists">Physiologists</option>
+                                                                    <option value="Urologist">Urologist</option>
+                                                                <%} else { %>
+                                                                    <% if (work[0].specialization==="General Psychiatrist") { %>
+                                                                        <option value="" disabled hidden>---Select---</option>
+                                                                        <option value="Audiologist" >Audiologist</option>
+                                                                        <option value="Cardiologist" >Cardiologist</option>
+                                                                        <option value="Dentist" >Dentist</option>
+                                                                        <option value="Dermatologist" >Dermatologist</option>
+                                                                        <option value="Endocrinologist" >Endocrinologist</option>
+                                                                        <option value="Epidemiologists" >Epidemiologists</option>
+                                                                        <option value="ENT Specialist" >ENT Specialist</option>
+                                                                        <option value="Family Practitioner" >Family Practitioner</option>
+                                                                        <option value="Gastroenterologist" >Gastroenterologist</option>
+                                                                        <option value="Gynecologist" >Gynecologist</option>
+                                                                        <option value="General Psychiatrist" selected>General Psychiatrist</option>
+                                                                        <option value="Orthopedist">Orthopedist</option>
+                                                                        <option value="Pediatrician">Pediatrician</option>
+                                                                        <option value="Physiologists">Physiologists</option>
+                                                                        <option value="Urologist">Urologist</option>
+                                                                    <%} else { %>
+                                                                        <% if (work[0].specialization==="Orthopedist") { %>
+                                                                            <option value="" disabled hidden>---Select---</option>
+                                                                            <option value="Audiologist" >Audiologist</option>
+                                                                            <option value="Cardiologist" >Cardiologist</option>
+                                                                            <option value="Dentist" >Dentist</option>
+                                                                            <option value="Dermatologist" >Dermatologist</option>
+                                                                            <option value="Endocrinologist" >Endocrinologist</option>
+                                                                            <option value="Epidemiologists" >Epidemiologists</option>
+                                                                            <option value="ENT Specialist" >ENT Specialist</option>
+                                                                            <option value="Family Practitioner" >Family Practitioner</option>
+                                                                            <option value="Gastroenterologist" >Gastroenterologist</option>
+                                                                            <option value="Gynecologist" >Gynecologist</option>
+                                                                            <option value="General Psychiatrist" >General Psychiatrist</option>
+                                                                            <option value="Orthopedist" selected>Orthopedist</option>
+                                                                            <option value="Pediatrician">Pediatrician</option>
+                                                                            <option value="Physiologists">Physiologists</option>
+                                                                            <option value="Urologist">Urologist</option>
+                                                                        <%} else { %>
+                                                                            <% if (work[0].specialization==="Pediatrician") { %>
+                                                                                <option value="" disabled hidden>---Select---</option>
+                                                                                <option value="Audiologist" >Audiologist</option>
+                                                                                <option value="Cardiologist" >Cardiologist</option>
+                                                                                <option value="Dentist" >Dentist</option>
+                                                                                <option value="Dermatologist" >Dermatologist</option>
+                                                                                <option value="Endocrinologist" >Endocrinologist</option>
+                                                                                <option value="Epidemiologists" >Epidemiologists</option>
+                                                                                <option value="ENT Specialist" >ENT Specialist</option>
+                                                                                <option value="Family Practitioner" >Family Practitioner</option>
+                                                                                <option value="Gastroenterologist" >Gastroenterologist</option>
+                                                                                <option value="Gynecologist" >Gynecologist</option>
+                                                                                <option value="General Psychiatrist" >General Psychiatrist</option>
+                                                                                <option value="Orthopedist" >Orthopedist</option>
+                                                                                <option value="Pediatrician" selected>Pediatrician</option>
+                                                                                <option value="Physiologists">Physiologists</option>
+                                                                                <option value="Urologist">Urologist</option>
+                                                                            <%} else { %>
+                                                                                <% if (work[0].specialization==="Physiologists") { %>
+                                                                                    <option value="" disabled hidden>---Select---</option>
+                                                                                    <option value="Audiologist" >Audiologist</option>
+                                                                                    <option value="Cardiologist" >Cardiologist</option>
+                                                                                    <option value="Dentist" >Dentist</option>
+                                                                                    <option value="Dermatologist" >Dermatologist</option>
+                                                                                    <option value="Endocrinologist" >Endocrinologist</option>
+                                                                                    <option value="Epidemiologists" >Epidemiologists</option>
+                                                                                    <option value="ENT Specialist" >ENT Specialist</option>
+                                                                                    <option value="Family Practitioner" >Family Practitioner</option>
+                                                                                    <option value="Gastroenterologist" >Gastroenterologist</option>
+                                                                                    <option value="Gynecologist" >Gynecologist</option>
+                                                                                    <option value="General Psychiatrist" >General Psychiatrist</option>
+                                                                                    <option value="Orthopedist" >Orthopedist</option>
+                                                                                    <option value="Pediatrician" >Pediatrician</option>
+                                                                                    <option value="Physiologists" selected>Physiologists</option>
+                                                                                    <option value="Urologist">Urologist</option>
+                                                                                <%} else { %>
+                                                                                    <option value="" disabled hidden>---Select---</option>
+                                                                                    <option value="Audiologist" >Audiologist</option>
+                                                                                    <option value="Cardiologist" >Cardiologist</option>
+                                                                                    <option value="Dentist" >Dentist</option>
+                                                                                    <option value="Dermatologist" >Dermatologist</option>
+                                                                                    <option value="Endocrinologist" >Endocrinologist</option>
+                                                                                    <option value="Epidemiologists" >Epidemiologists</option>
+                                                                                    <option value="ENT Specialist" >ENT Specialist</option>
+                                                                                    <option value="Family Practitioner" >Family Practitioner</option>
+                                                                                    <option value="Gastroenterologist" >Gastroenterologist</option>
+                                                                                    <option value="Gynecologist" >Gynecologist</option>
+                                                                                    <option value="General Psychiatrist" >General Psychiatrist</option>
+                                                                                    <option value="Orthopedist" >Orthopedist</option>
+                                                                                    <option value="Pediatrician" >Pediatrician</option>
+                                                                                    <option value="Physiologists" >Physiologists</option>
+                                                                                    <option value="Urologist" selected>Urologist</option>
+                                                                                <% } %>
+                                                                            <% } %>
+                                                                        <% } %>
+                                                                    <% } %>
+                                                                <% } %>
+                                                            <% } %>
+                                                        <% } %>
+                                                    <% } %>
+                                                <% } %>
+                                            <% } %>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                            <% } %>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-12 col-form-label">
+                        AVAILABLE TIMINGS<span class="r">*</span>
+                    </label>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">WEEKDAYS<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-3">
+
+                        <select name="from_wd" id="from_wd" class="form-control" required>
+                            <% if (work[0].weekday_from==="Unavailable") { %>
+                                <option value="" disabled hidden>---Select---</option>
+                                <option value="Unavailable" selected>Unavailable</option>
+                                <option value="9:00AM">9:00 AM</option>
+                                <option value="10:00AM">10:00 AM</option>
+                                <option value="11:00AM">11:00 AM</option>
+                                <option value="12:00PM">12:00 PM</option>
+                                <option value="1:00PM">1:00 PM</option>
+                                <option value="2:00PM">2:00 PM</option>
+                                <option value="3:00PM">3:00 PM</option>
+                                <option value="4:00PM">4:00 PM</option>
+                                <option value="5:00PM">5:00 PM</option>
+                                <option value="6:00PM">6:00 PM</option>
+                                <option value="7:00PM">7:00 PM</option>
+                                <option value="8:00PM">8:00 PM</option>
+                                <option value="9:00PM">9:00 PM</option>
+                            <%} else { %>
+                                <% if (work[0].weekday_from==="9:00AM") { %>
+                                    <option value="" disabled hidden>---Select---</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                    <option value="9:00AM" selected>9:00 AM</option>
+                                    <option value="10:00AM">10:00 AM</option>
+                                    <option value="11:00AM">11:00 AM</option>
+                                    <option value="12:00PM">12:00 PM</option>
+                                    <option value="1:00PM">1:00 PM</option>
+                                    <option value="2:00PM">2:00 PM</option>
+                                    <option value="3:00PM">3:00 PM</option>
+                                    <option value="4:00PM">4:00 PM</option>
+                                    <option value="5:00PM">5:00 PM</option>
+                                    <option value="6:00PM">6:00 PM</option>
+                                    <option value="7:00PM">7:00 PM</option>
+                                    <option value="8:00PM">8:00 PM</option>
+                                    <option value="9:00PM">9:00 PM</option>
+                                <%} else { %>
+                                    <% if (work[0].weekday_from==="10:00AM") { %>
+                                        <option value="" disabled hidden>---Select---</option>
+                                        <option value="Unavailable">Unavailable</option>
+                                        <option value="9:00AM">9:00 AM</option>
+                                        <option value="10:00AM" selected>10:00 AM</option>
+                                        <option value="11:00AM">11:00 AM</option>
+                                        <option value="12:00PM">12:00 PM</option>
+                                        <option value="1:00PM">1:00 PM</option>
+                                        <option value="2:00PM">2:00 PM</option>
+                                        <option value="3:00PM">3:00 PM</option>
+                                        <option value="4:00PM">4:00 PM</option>
+                                        <option value="5:00PM">5:00 PM</option>
+                                        <option value="6:00PM">6:00 PM</option>
+                                        <option value="7:00PM">7:00 PM</option>
+                                        <option value="8:00PM">8:00 PM</option>
+                                        <option value="9:00PM">9:00 PM</option>
+                                    <%} else { %>
+                                        <% if (work[0].weekday_from==="11:00AM") { %>
+                                            <option value="" disabled hidden>---Select---</option>
+                                            <option value="Unavailable">Unavailable</option>
+                                            <option value="9:00AM">9:00 AM</option>
+                                            <option value="10:00AM">10:00 AM</option>
+                                            <option value="11:00AM" selected>11:00 AM</option>
+                                            <option value="12:00PM">12:00 PM</option>
+                                            <option value="1:00PM">1:00 PM</option>
+                                            <option value="2:00PM">2:00 PM</option>
+                                            <option value="3:00PM">3:00 PM</option>
+                                            <option value="4:00PM">4:00 PM</option>
+                                            <option value="5:00PM">5:00 PM</option>
+                                            <option value="6:00PM">6:00 PM</option>
+                                            <option value="7:00PM">7:00 PM</option>
+                                            <option value="8:00PM">8:00 PM</option>
+                                            <option value="9:00PM">9:00 PM</option>
+                                        <%} else { %>
+                                            <% if (work[0].weekday_from==="12:00PM") { %>
+                                                <option value="" disabled hidden>---Select---</option>
+                                                <option value="Unavailable">Unavailable</option>
+                                                <option value="9:00AM">9:00 AM</option>
+                                                <option value="10:00AM">10:00 AM</option>
+                                                <option value="11:00AM">11:00 AM</option>
+                                                <option value="12:00PM" selected>12:00 PM</option>
+                                                <option value="1:00PM">1:00 PM</option>
+                                                <option value="2:00PM">2:00 PM</option>
+                                                <option value="3:00PM">3:00 PM</option>
+                                                <option value="4:00PM">4:00 PM</option>
+                                                <option value="5:00PM">5:00 PM</option>
+                                                <option value="6:00PM">6:00 PM</option>
+                                                <option value="7:00PM">7:00 PM</option>
+                                                <option value="8:00PM">8:00 PM</option>
+                                                <option value="9:00PM">9:00 PM</option>
+                                            <%} else { %>
+                                                <% if (work[0].weekday_from==="1:00PM") { %>
+                                                    <option value="" disabled hidden>---Select---</option>
+                                                    <option value="Unavailable">Unavailable</option>
+                                                    <option value="9:00AM">9:00 AM</option>
+                                                    <option value="10:00AM">10:00 AM</option>
+                                                    <option value="11:00AM">11:00 AM</option>
+                                                    <option value="12:00PM">12:00 PM</option>
+                                                    <option value="1:00PM" selected>1:00 PM</option>
+                                                    <option value="2:00PM">2:00 PM</option>
+                                                    <option value="3:00PM">3:00 PM</option>
+                                                    <option value="4:00PM">4:00 PM</option>
+                                                    <option value="5:00PM">5:00 PM</option>
+                                                    <option value="6:00PM">6:00 PM</option>
+                                                    <option value="7:00PM">7:00 PM</option>
+                                                    <option value="8:00PM">8:00 PM</option>
+                                                    <option value="9:00PM">9:00 PM</option>
+                                                <%} else { %>
+                                                    <% if (work[0].weekday_from==="2:00PM") { %>
+                                                        <option value="" disabled hidden>---Select---</option>
+                                                        <option value="Unavailable">Unavailable</option>
+                                                        <option value="9:00AM">9:00 AM</option>
+                                                        <option value="10:00AM">10:00 AM</option>
+                                                        <option value="11:00AM">11:00 AM</option>
+                                                        <option value="12:00PM">12:00 PM</option>
+                                                        <option value="1:00PM">1:00 PM</option>
+                                                        <option value="2:00PM" selected>2:00 PM</option>
+                                                        <option value="3:00PM">3:00 PM</option>
+                                                        <option value="4:00PM">4:00 PM</option>
+                                                        <option value="5:00PM">5:00 PM</option>
+                                                        <option value="6:00PM">6:00 PM</option>
+                                                        <option value="7:00PM">7:00 PM</option>
+                                                        <option value="8:00PM">8:00 PM</option>
+                                                        <option value="9:00PM">9:00 PM</option>
+                                                    <%} else { %>
+                                                        <% if (work[0].weekday_from==="3:00PM") { %>
+                                                            <option value="" disabled hidden>---Select---</option>
+                                                            <option value="Unavailable">Unavailable</option>
+                                                            <option value="9:00AM">9:00 AM</option>
+                                                            <option value="10:00AM">10:00 AM</option>
+                                                            <option value="11:00AM">11:00 AM</option>
+                                                            <option value="12:00PM">12:00 PM</option>
+                                                            <option value="1:00PM">1:00 PM</option>
+                                                            <option value="2:00PM">2:00 PM</option>
+                                                            <option value="3:00PM" selected>3:00 PM</option>
+                                                            <option value="4:00PM">4:00 PM</option>
+                                                            <option value="5:00PM">5:00 PM</option>
+                                                            <option value="6:00PM">6:00 PM</option>
+                                                            <option value="7:00PM">7:00 PM</option>
+                                                            <option value="8:00PM">8:00 PM</option>
+                                                            <option value="9:00PM">9:00 PM</option>
+                                                        <%} else { %>
+                                                            <% if (work[0].weekday_from==="4:00PM") { %>
+                                                                <option value="" disabled hidden>---Select---</option>
+                                                                <option value="Unavailable">Unavailable</option>
+                                                                <option value="9:00AM">9:00 AM</option>
+                                                                <option value="10:00AM">10:00 AM</option>
+                                                                <option value="11:00AM">11:00 AM</option>
+                                                                <option value="12:00PM">12:00 PM</option>
+                                                                <option value="1:00PM">1:00 PM</option>
+                                                                <option value="2:00PM">2:00 PM</option>
+                                                                <option value="3:00PM">3:00 PM</option>
+                                                                <option value="4:00PM" selected>4:00 PM</option>
+                                                                <option value="5:00PM">5:00 PM</option>
+                                                                <option value="6:00PM">6:00 PM</option>
+                                                                <option value="7:00PM">7:00 PM</option>
+                                                                <option value="8:00PM">8:00 PM</option>
+                                                                <option value="9:00PM">9:00 PM</option>
+                                                            <%} else { %>
+                                                                <% if (work[0].weekday_from==="5:00PM") { %>
+                                                                    <option value="" disabled hidden>---Select---</option>
+                                                                    <option value="Unavailable">Unavailable</option>
+                                                                    <option value="9:00AM">9:00 AM</option>
+                                                                    <option value="10:00AM">10:00 AM</option>
+                                                                    <option value="11:00AM">11:00 AM</option>
+                                                                    <option value="12:00PM">12:00 PM</option>
+                                                                    <option value="1:00PM">1:00 PM</option>
+                                                                    <option value="2:00PM">2:00 PM</option>
+                                                                    <option value="3:00PM">3:00 PM</option>
+                                                                    <option value="4:00PM">4:00 PM</option>
+                                                                    <option value="5:00PM" selected>5:00 PM</option>
+                                                                    <option value="6:00PM">6:00 PM</option>
+                                                                    <option value="7:00PM">7:00 PM</option>
+                                                                    <option value="8:00PM">8:00 PM</option>
+                                                                    <option value="9:00PM">9:00 PM</option>
+                                                                <%} else { %>
+                                                                    <% if (work[0].weekday_from==="6:00PM") { %>
+                                                                        <option value="" disabled hidden>---Select---</option>
+                                                                        <option value="Unavailable">Unavailable</option>
+                                                                        <option value="9:00AM">9:00 AM</option>
+                                                                        <option value="10:00AM">10:00 AM</option>
+                                                                        <option value="11:00AM">11:00 AM</option>
+                                                                        <option value="12:00PM">12:00 PM</option>
+                                                                        <option value="1:00PM">1:00 PM</option>
+                                                                        <option value="2:00PM">2:00 PM</option>
+                                                                        <option value="3:00PM">3:00 PM</option>
+                                                                        <option value="4:00PM">4:00 PM</option>
+                                                                        <option value="5:00PM">5:00 PM</option>
+                                                                        <option value="6:00PM" selected>6:00 PM</option>
+                                                                        <option value="7:00PM">7:00 PM</option>
+                                                                        <option value="8:00PM">8:00 PM</option>
+                                                                        <option value="9:00PM">9:00 PM</option>
+                                                                    <%} else { %>
+                                                                        <% if (work[0].weekday_from==="7:00PM") { %>
+                                                                            <option value="" disabled hidden>---Select---</option>
+                                                                            <option value="Unavailable">Unavailable</option>
+                                                                            <option value="9:00AM">9:00 AM</option>
+                                                                            <option value="10:00AM">10:00 AM</option>
+                                                                            <option value="11:00AM">11:00 AM</option>
+                                                                            <option value="12:00PM">12:00 PM</option>
+                                                                            <option value="1:00PM">1:00 PM</option>
+                                                                            <option value="2:00PM">2:00 PM</option>
+                                                                            <option value="3:00PM">3:00 PM</option>
+                                                                            <option value="4:00PM">4:00 PM</option>
+                                                                            <option value="5:00PM">5:00 PM</option>
+                                                                            <option value="6:00PM">6:00 PM</option>
+                                                                            <option value="7:00PM" selected>7:00 PM</option>
+                                                                            <option value="8:00PM">8:00 PM</option>
+                                                                            <option value="9:00PM">9:00 PM</option>
+                                                                        <%} else { %>
+                                                                            <% if (work[0].weekday_from==="8:00PM") { %>
+                                                                                <option value="" disabled hidden>---Select---</option>
+                                                                                <option value="Unavailable">Unavailable</option>
+                                                                                <option value="9:00AM">9:00 AM</option>
+                                                                                <option value="10:00AM">10:00 AM</option>
+                                                                                <option value="11:00AM">11:00 AM</option>
+                                                                                <option value="12:00PM">12:00 PM</option>
+                                                                                <option value="1:00PM">1:00 PM</option>
+                                                                                <option value="2:00PM">2:00 PM</option>
+                                                                                <option value="3:00PM">3:00 PM</option>
+                                                                                <option value="4:00PM">4:00 PM</option>
+                                                                                <option value="5:00PM">5:00 PM</option>
+                                                                                <option value="6:00PM">6:00 PM</option>
+                                                                                <option value="7:00PM">7:00 PM</option>
+                                                                                <option value="8:00PM" selected>8:00 PM</option>
+                                                                                <option value="9:00PM">9:00 PM</option>
+                                                                            <%} else { %>
+                                                                                <option value="" disabled hidden>---Select---</option>
+                                                                                <option value="Unavailable">Unavailable</option>
+                                                                                <option value="9:00AM">9:00 AM</option>
+                                                                                <option value="10:00AM">10:00 AM</option>
+                                                                                <option value="11:00AM">11:00 AM</option>
+                                                                                <option value="12:00PM">12:00 PM</option>
+                                                                                <option value="1:00PM">1:00 PM</option>
+                                                                                <option value="2:00PM">2:00 PM</option>
+                                                                                <option value="3:00PM">3:00 PM</option>
+                                                                                <option value="4:00PM">4:00 PM</option>
+                                                                                <option value="5:00PM">5:00 PM</option>
+                                                                                <option value="6:00PM">6:00 PM</option>
+                                                                                <option value="7:00PM">7:00 PM</option>
+                                                                                <option value="8:00PM">8:00 PM</option>
+                                                                                <option value="9:00PM" selected>9:00 PM</option>
+                                                                            <% } %>
+                                                                        <% } %>
+                                                                    <% } %>
+                                                                <% } %>
+                                                            <% } %>
+                                                        <% } %>
+                                                    <% } %>
+                                                <% } %>
+                                            <% } %>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                            <% } %>
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-2 offset-md-1">
+                        <label class="col-form-label">TO</label>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <select name="to_wd" id="to_wd" class="form-control" required>
+                            <% if (work[0].weekday_to==="Unavailable") { %>
+                                <option value="" disabled hidden>---Select---</option>
+                                <option value="Unavailable" selected>Unavailable</option>
+                                <option value="10:00AM">10:00 AM</option>
+                                <option value="11:00AM">11:00 AM</option>
+                                <option value="12:00PM">12:00 PM</option>
+                                <option value="1:00PM">1:00 PM</option>
+                                <option value="2:00PM">2:00 PM</option>
+                                <option value="3:00PM">3:00 PM</option>
+                                <option value="4:00PM">4:00 PM</option>
+                                <option value="5:00PM">5:00 PM</option>
+                                <option value="6:00PM">6:00 PM</option>
+                                <option value="7:00PM">7:00 PM</option>
+                                <option value="8:00PM">8:00 PM</option>
+                                <option value="9:00PM">9:00 PM</option>
+                                <option value="10:00PM">10:00 PM</option>
+                            <%} else { %>
+                                <% if (work[0].weekday_to==="10:00AM") { %>
+                                    <option value="" disabled hidden>---Select---</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                    <option value="10:00AM" selected>10:00 AM</option>
+                                    <option value="11:00AM">11:00 AM</option>
+                                    <option value="12:00PM">12:00 PM</option>
+                                    <option value="1:00PM">1:00 PM</option>
+                                    <option value="2:00PM">2:00 PM</option>
+                                    <option value="3:00PM">3:00 PM</option>
+                                    <option value="4:00PM">4:00 PM</option>
+                                    <option value="5:00PM">5:00 PM</option>
+                                    <option value="6:00PM">6:00 PM</option>
+                                    <option value="7:00PM">7:00 PM</option>
+                                    <option value="8:00PM">8:00 PM</option>
+                                    <option value="9:00PM">9:00 PM</option>
+                                    <option value="10:00PM">10:00 PM</option>
+                                <%} else { %>
+                                    <% if (work[0].weekday_to==="11:00AM") { %>
+                                        <option value="" disabled hidden>---Select---</option>
+                                        <option value="Unavailable">Unavailable</option>
+                                        <option value="10:00AM">10:00 AM</option>
+                                        <option value="11:00AM" selected>11:00 AM</option>
+                                        <option value="12:00PM">12:00 PM</option>
+                                        <option value="1:00PM">1:00 PM</option>
+                                        <option value="2:00PM">2:00 PM</option>
+                                        <option value="3:00PM">3:00 PM</option>
+                                        <option value="4:00PM">4:00 PM</option>
+                                        <option value="5:00PM">5:00 PM</option>
+                                        <option value="6:00PM">6:00 PM</option>
+                                        <option value="7:00PM">7:00 PM</option>
+                                        <option value="8:00PM">8:00 PM</option>
+                                        <option value="9:00PM">9:00 PM</option>
+                                        <option value="10:00PM">10:00 PM</option>
+                                    <%} else { %>
+                                        <% if (work[0].weekday_to==="12:00PM") { %>
+                                            <option value="" disabled hidden>---Select---</option>
+                                            <option value="Unavailable">Unavailable</option>
+                                            <option value="10:00AM">10:00 AM</option>
+                                            <option value="11:00AM">11:00 AM</option>
+                                            <option value="12:00PM" selected>12:00 PM</option>
+                                            <option value="1:00PM">1:00 PM</option>
+                                            <option value="2:00PM">2:00 PM</option>
+                                            <option value="3:00PM">3:00 PM</option>
+                                            <option value="4:00PM">4:00 PM</option>
+                                            <option value="5:00PM">5:00 PM</option>
+                                            <option value="6:00PM">6:00 PM</option>
+                                            <option value="7:00PM">7:00 PM</option>
+                                            <option value="8:00PM">8:00 PM</option>
+                                            <option value="9:00PM">9:00 PM</option>
+                                            <option value="10:00PM">10:00 PM</option>
+                                        <%} else { %>
+                                            <% if (work[0].weekday_to==="1:00PM") { %>
+                                                <option value="" disabled hidden>---Select---</option>
+                                                <option value="Unavailable">Unavailable</option>
+                                                <option value="10:00AM">10:00 AM</option>
+                                                <option value="11:00AM">11:00 AM</option>
+                                                <option value="12:00PM">12:00 PM</option>
+                                                <option value="1:00PM" selected>1:00 PM</option>
+                                                <option value="2:00PM">2:00 PM</option>
+                                                <option value="3:00PM">3:00 PM</option>
+                                                <option value="4:00PM">4:00 PM</option>
+                                                <option value="5:00PM">5:00 PM</option>
+                                                <option value="6:00PM">6:00 PM</option>
+                                                <option value="7:00PM">7:00 PM</option>
+                                                <option value="8:00PM">8:00 PM</option>
+                                                <option value="9:00PM">9:00 PM</option>
+                                                <option value="10:00PM">10:00 PM</option>
+                                            <%} else { %>
+                                                <% if (work[0].weekday_to==="2:00PM") { %>
+                                                    <option value="" disabled hidden>---Select---</option>
+                                                    <option value="Unavailable">Unavailable</option>
+                                                    <option value="10:00AM">10:00 AM</option>
+                                                    <option value="11:00AM">11:00 AM</option>
+                                                    <option value="12:00PM">12:00 PM</option>
+                                                    <option value="1:00PM">1:00 PM</option>
+                                                    <option value="2:00PM" selected>2:00 PM</option>
+                                                    <option value="3:00PM">3:00 PM</option>
+                                                    <option value="4:00PM">4:00 PM</option>
+                                                    <option value="5:00PM">5:00 PM</option>
+                                                    <option value="6:00PM">6:00 PM</option>
+                                                    <option value="7:00PM">7:00 PM</option>
+                                                    <option value="8:00PM">8:00 PM</option>
+                                                    <option value="9:00PM">9:00 PM</option>
+                                                    <option value="10:00PM">10:00 PM</option>
+                                                <%} else { %>
+                                                    <% if (work[0].weekday_to==="3:00PM") { %>
+                                                        <option value="" disabled hidden>---Select---</option>
+                                                        <option value="Unavailable">Unavailable</option>
+                                                        <option value="10:00AM">10:00 AM</option>
+                                                        <option value="11:00AM">11:00 AM</option>
+                                                        <option value="12:00PM">12:00 PM</option>
+                                                        <option value="1:00PM">1:00 PM</option>
+                                                        <option value="2:00PM">2:00 PM</option>
+                                                        <option value="3:00PM" selected>3:00 PM</option>
+                                                        <option value="4:00PM">4:00 PM</option>
+                                                        <option value="5:00PM">5:00 PM</option>
+                                                        <option value="6:00PM">6:00 PM</option>
+                                                        <option value="7:00PM">7:00 PM</option>
+                                                        <option value="8:00PM">8:00 PM</option>
+                                                        <option value="9:00PM">9:00 PM</option>
+                                                        <option value="10:00PM">10:00 PM</option>
+                                                    <%} else { %>
+                                                        <% if (work[0].weekday_to==="4:00PM") { %>
+                                                            <option value="" disabled hidden>---Select---</option>
+                                                            <option value="Unavailable">Unavailable</option>
+                                                            <option value="10:00AM">10:00 AM</option>
+                                                            <option value="11:00AM">11:00 AM</option>
+                                                            <option value="12:00PM">12:00 PM</option>
+                                                            <option value="1:00PM">1:00 PM</option>
+                                                            <option value="2:00PM">2:00 PM</option>
+                                                            <option value="3:00PM">3:00 PM</option>
+                                                            <option value="4:00PM" selected>4:00 PM</option>
+                                                            <option value="5:00PM">5:00 PM</option>
+                                                            <option value="6:00PM">6:00 PM</option>
+                                                            <option value="7:00PM">7:00 PM</option>
+                                                            <option value="8:00PM">8:00 PM</option>
+                                                            <option value="9:00PM">9:00 PM</option>
+                                                            <option value="10:00PM">10:00 PM</option>
+                                                        <%} else { %>
+                                                            <% if (work[0].weekday_to==="5:00PM") { %>
+                                                                <option value="" disabled hidden>---Select---</option>
+                                                                <option value="Unavailable">Unavailable</option>
+                                                                <option value="10:00AM">10:00 AM</option>
+                                                                <option value="11:00AM">11:00 AM</option>
+                                                                <option value="12:00PM">12:00 PM</option>
+                                                                <option value="1:00PM">1:00 PM</option>
+                                                                <option value="2:00PM">2:00 PM</option>
+                                                                <option value="3:00PM">3:00 PM</option>
+                                                                <option value="4:00PM">4:00 PM</option>
+                                                                <option value="5:00PM" selected>5:00 PM</option>
+                                                                <option value="6:00PM">6:00 PM</option>
+                                                                <option value="7:00PM">7:00 PM</option>
+                                                                <option value="8:00PM">8:00 PM</option>
+                                                                <option value="9:00PM">9:00 PM</option>
+                                                                <option value="10:00PM">10:00 PM</option>
+                                                            <%} else { %>
+                                                                <% if (work[0].weekday_to==="6:00PM") { %>
+                                                                    <option value="" disabled hidden>---Select---</option>
+                                                                    <option value="Unavailable">Unavailable</option>
+                                                                    <option value="10:00AM">10:00 AM</option>
+                                                                    <option value="11:00AM">11:00 AM</option>
+                                                                    <option value="12:00PM">12:00 PM</option>
+                                                                    <option value="1:00PM">1:00 PM</option>
+                                                                    <option value="2:00PM">2:00 PM</option>
+                                                                    <option value="3:00PM">3:00 PM</option>
+                                                                    <option value="4:00PM">4:00 PM</option>
+                                                                    <option value="5:00PM">5:00 PM</option>
+                                                                    <option value="6:00PM" selected>6:00 PM</option>
+                                                                    <option value="7:00PM">7:00 PM</option>
+                                                                    <option value="8:00PM">8:00 PM</option>
+                                                                    <option value="9:00PM">9:00 PM</option>
+                                                                    <option value="10:00PM">10:00 PM</option>
+                                                                <%} else { %>
+                                                                    <% if (work[0].weekday_to==="7:00PM") { %>
+                                                                        <option value="" disabled hidden>---Select---</option>
+                                                                        <option value="Unavailable">Unavailable</option>
+                                                                        <option value="10:00AM">10:00 AM</option>
+                                                                        <option value="11:00AM">11:00 AM</option>
+                                                                        <option value="12:00PM">12:00 PM</option>
+                                                                        <option value="1:00PM">1:00 PM</option>
+                                                                        <option value="2:00PM">2:00 PM</option>
+                                                                        <option value="3:00PM">3:00 PM</option>
+                                                                        <option value="4:00PM">4:00 PM</option>
+                                                                        <option value="5:00PM">5:00 PM</option>
+                                                                        <option value="6:00PM">6:00 PM</option>
+                                                                        <option value="7:00PM" selected>7:00 PM</option>
+                                                                        <option value="8:00PM">8:00 PM</option>
+                                                                        <option value="9:00PM">9:00 PM</option>
+                                                                        <option value="10:00PM">10:00 PM</option>
+                                                                    <%} else { %>
+                                                                        <% if (work[0].weekday_to==="8:00PM") { %>
+                                                                            <option value="" disabled hidden>---Select---</option>
+                                                                            <option value="Unavailable">Unavailable</option>
+                                                                            <option value="10:00AM">10:00 AM</option>
+                                                                            <option value="11:00AM">11:00 AM</option>
+                                                                            <option value="12:00PM">12:00 PM</option>
+                                                                            <option value="1:00PM">1:00 PM</option>
+                                                                            <option value="2:00PM">2:00 PM</option>
+                                                                            <option value="3:00PM">3:00 PM</option>
+                                                                            <option value="4:00PM">4:00 PM</option>
+                                                                            <option value="5:00PM">5:00 PM</option>
+                                                                            <option value="6:00PM">6:00 PM</option>
+                                                                            <option value="7:00PM">7:00 PM</option>
+                                                                            <option value="8:00PM" selected>8:00 PM</option>
+                                                                            <option value="9:00PM">9:00 PM</option>
+                                                                            <option value="10:00PM">10:00 PM</option>
+                                                                        <%} else { %>
+                                                                            <% if (work[0].weekday_to==="9:00PM") { %>
+                                                                                <option value="" disabled hidden>---Select---</option>
+                                                                                <option value="Unavailable">Unavailable</option>
+                                                                                <option value="10:00AM">10:00 AM</option>
+                                                                                <option value="11:00AM">11:00 AM</option>
+                                                                                <option value="12:00PM">12:00 PM</option>
+                                                                                <option value="1:00PM">1:00 PM</option>
+                                                                                <option value="2:00PM">2:00 PM</option>
+                                                                                <option value="3:00PM">3:00 PM</option>
+                                                                                <option value="4:00PM">4:00 PM</option>
+                                                                                <option value="5:00PM">5:00 PM</option>
+                                                                                <option value="6:00PM">6:00 PM</option>
+                                                                                <option value="7:00PM">7:00 PM</option>
+                                                                                <option value="8:00PM">8:00 PM</option>
+                                                                                <option value="9:00PM" selected>9:00 PM</option>
+                                                                                <option value="10:00PM">10:00 PM</option>
+                                                                            <%} else { %>
+                                                                                <option value="" disabled hidden>---Select---</option>
+                                                                                <option value="Unavailable">Unavailable</option>
+                                                                                <option value="9:00AM" >9:00 AM</option>
+                                                                                <option value="10:00AM">10:00 AM</option>
+                                                                                <option value="11:00AM">11:00 AM</option>
+                                                                                <option value="12:00PM">12:00 PM</option>
+                                                                                <option value="1:00PM">1:00 PM</option>
+                                                                                <option value="2:00PM">2:00 PM</option>
+                                                                                <option value="3:00PM">3:00 PM</option>
+                                                                                <option value="4:00PM">4:00 PM</option>
+                                                                                <option value="5:00PM">5:00 PM</option>
+                                                                                <option value="6:00PM">6:00 PM</option>
+                                                                                <option value="7:00PM">7:00 PM</option>
+                                                                                <option value="8:00PM">8:00 PM</option>
+                                                                                <option value="9:00PM">9:00 PM</option>
+                                                                                <option value="10:00PM" selected>10:00 PM</option>
+                                                                            <% } %>
+                                                                        <% } %>
+                                                                    <% } %>
+                                                                <% } %>
+                                                            <% } %>
+                                                        <% } %>
+                                                    <% } %>
+                                                <% } %>
+                                            <% } %>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                            <% } %>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">SATURDAY<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-3">
+
+                        <select name="from_sat" id="from_sat" class="form-control" required>
+                            <% if (work[0].sat_from==="Unavailable") { %>
+                                <option value="" disabled hidden>---Select---</option>
+                                <option value="Unavailable" selected>Unavailable</option>
+                                <option value="11:00AM">11:00 AM</option>
+                                <option value="12:00PM">12:00 PM</option>
+                                <option value="1:00PM">1:00 PM</option>
+                                <option value="2:00PM">2:00 PM</option>
+                                <option value="3:00PM">3:00 PM</option>
+                                <option value="4:00PM">4:00 PM</option>
+                                <option value="5:00PM">5:00 PM</option>
+                                <option value="6:00PM">6:00 PM</option>
+                            <%} else { %>
+                                <% if (work[0].sat_from==="11:00AM") { %>
+                                    <option value="" disabled hidden>---Select---</option>
+                                    <option value="Unavailable" >Unavailable</option>
+                                    <option value="11:00AM" selected>11:00 AM</option>
+                                    <option value="12:00PM">12:00 PM</option>
+                                    <option value="1:00PM">1:00 PM</option>
+                                    <option value="2:00PM">2:00 PM</option>
+                                    <option value="3:00PM">3:00 PM</option>
+                                    <option value="4:00PM">4:00 PM</option>
+                                    <option value="5:00PM">5:00 PM</option>
+                                    <option value="6:00PM">6:00 PM</option>
+                                <%} else { %>
+                                    <% if (work[0].sat_from==="12:00PM") { %>
+                                        <option value="" disabled hidden>---Select---</option>
+                                        <option value="Unavailable" selected>Unavailable</option>
+                                        <option value="11:00AM">11:00 AM</option>
+                                        <option value="12:00PM" selected>12:00 PM</option>
+                                        <option value="1:00PM">1:00 PM</option>
+                                        <option value="2:00PM">2:00 PM</option>
+                                        <option value="3:00PM">3:00 PM</option>
+                                        <option value="4:00PM">4:00 PM</option>
+                                        <option value="5:00PM">5:00 PM</option>
+                                        <option value="6:00PM">6:00 PM</option>
+                                    <%} else { %>
+                                        <% if (work[0].sat_from==="1:00PM") { %>
+                                            <option value="" disabled hidden>---Select---</option>
+                                            <option value="Unavailable" selected>Unavailable</option>
+                                            <option value="11:00AM">11:00 AM</option>
+                                            <option value="12:00PM">12:00 PM</option>
+                                            <option value="1:00PM" selected>1:00 PM</option>
+                                            <option value="2:00PM">2:00 PM</option>
+                                            <option value="3:00PM">3:00 PM</option>
+                                            <option value="4:00PM">4:00 PM</option>
+                                            <option value="5:00PM">5:00 PM</option>
+                                            <option value="6:00PM">6:00 PM</option>
+                                        <%} else { %>
+                                            <% if (work[0].sat_from==="2:00PM") { %>
+                                                <option value="" disabled hidden>---Select---</option>
+                                                <option value="Unavailable">Unavailable</option>
+                                                <option value="11:00AM">11:00 AM</option>
+                                                <option value="12:00PM">12:00 PM</option>
+                                                <option value="1:00PM">1:00 PM</option>
+                                                <option value="2:00PM" selected>2:00 PM</option>
+                                                <option value="3:00PM">3:00 PM</option>
+                                                <option value="4:00PM">4:00 PM</option>
+                                                <option value="5:00PM">5:00 PM</option>
+                                            <%} else { %>
+                                                <% if (work[0].sat_from==="3:00PM") { %>
+                                                    <option value="" disabled hidden>---Select---</option>
+                                                    <option value="Unavailable">Unavailable</option>
+                                                    <option value="11:00AM">11:00 AM</option>
+                                                    <option value="12:00PM">12:00 PM</option>
+                                                    <option value="1:00PM">1:00 PM</option>
+                                                    <option value="2:00PM">2:00 PM</option>
+                                                    <option value="3:00PM" selected>3:00 PM</option>
+                                                    <option value="4:00PM">4:00 PM</option>
+                                                    <option value="5:00PM">5:00 PM</option>
+                                                    <option value="6:00PM">6:00 PM</option>
+                                                <%} else { %>
+                                                    <% if (work[0].sat_from==="4:00PM") { %>
+                                                        <option value="" disabled hidden>---Select---</option>
+                                                        <option value="Unavailable" >Unavailable</option>
+                                                        <option value="11:00AM">11:00 AM</option>
+                                                        <option value="12:00PM">12:00 PM</option>
+                                                        <option value="1:00PM">1:00 PM</option>
+                                                        <option value="2:00PM">2:00 PM</option>
+                                                        <option value="3:00PM">3:00 PM</option>
+                                                        <option value="4:00PM" selected>4:00 PM</option>
+                                                        <option value="5:00PM">5:00 PM</option>
+                                                        <option value="6:00PM">6:00 PM</option>
+                                                    <%} else { %>
+                                                        <% if (work[0].sat_from==="5:00pM") { %>
+                                                            <option value="" disabled hidden>---Select---</option>
+                                                            <option value="Unavailable" >Unavailable</option>
+                                                            <option value="11:00AM">11:00 AM</option>
+                                                            <option value="12:00PM">12:00 PM</option>
+                                                            <option value="1:00PM">1:00 PM</option>
+                                                            <option value="2:00PM">2:00 PM</option>
+                                                            <option value="3:00PM">3:00 PM</option>
+                                                            <option value="4:00PM">4:00 PM</option>
+                                                            <option value="5:00PM">5:00 PM</option>
+                                                            <option value="6:00PM" selected>6:00 PM</option>
+                                                        <%} else { %>
+                                                            <option value="" disabled hidden>---Select---</option>
+                                                            <option value="Unavailable" >Unavailable</option>
+                                                            <option value="11:00AM">11:00 AM</option>
+                                                            <option value="12:00PM">12:00 PM</option>
+                                                            <option value="1:00PM">1:00 PM</option>
+                                                            <option value="2:00PM">2:00 PM</option>
+                                                            <option value="3:00PM">3:00 PM</option>
+                                                            <option value="4:00PM">4:00 PM</option>
+                                                            <option value="5:00PM">5:00 PM</option>
+                                                            <option value="6:00PM" selected>6:00 PM</option>
+                                                        <%}%>   
+                                                    <%}%>  
+                                                <%}%> 
+                                            <%}%>  
+                                        <%}%>   
+                                    <%}%> 
+                                <%}%>   
+                            <%}%>  
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-2 offset-md-1">
+                        <label class="col-form-label">TO</label>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <select name="to_sat" id="to_sat" class="form-control" required>
+                            <% if (work[0].sat_to==="Unavailable") { %>
+                                <option value="" disabled hidden>---Select---</option>
+                                <option value="Unavailable" selected>Unavailable</option>
+                                <option value="12:00PM">12:00 PM</option>
+                                <option value="1:00PM">1:00 PM</option>
+                                <option value="2:00PM">2:00 PM</option>
+                                <option value="3:00PM">3:00 PM</option>
+                                <option value="4:00PM">4:00 PM</option>
+                                <option value="5:00PM">5:00 PM</option>
+                                <option value="6:00PM">6:00 PM</option>
+                                <option value="7:00PM">7:00 PM</option>
+                            <%} else { %>
+                                <% if (work[0].sat_to==="12:00PM") { %>
+                                    <option value="" disabled hidden>---Select---</option>
+                                    <option value="Unavailable" selected>Unavailable</option>
+                                    <option value="12:00PM" selected>12:00 PM</option>
+                                    <option value="1:00PM">1:00 PM</option>
+                                    <option value="2:00PM">2:00 PM</option>
+                                    <option value="3:00PM">3:00 PM</option>
+                                    <option value="4:00PM">4:00 PM</option>
+                                    <option value="5:00PM">5:00 PM</option>
+                                    <option value="6:00PM">6:00 PM</option>
+                                    <option value="7:00PM">7:00 PM</option>
+                                <%} else { %>
+                                    <% if (work[0].sat_to==="1:00PM") { %>
+                                        <option value="" disabled hidden>---Select---</option>
+                                        <option value="Unavailable" selected>Unavailable</option>
+                                        <option value="12:00PM">12:00 PM</option>
+                                        <option value="1:00PM" selected>1:00 PM</option>
+                                        <option value="2:00PM">2:00 PM</option>
+                                        <option value="3:00PM">3:00 PM</option>
+                                        <option value="4:00PM">4:00 PM</option>
+                                        <option value="5:00PM">5:00 PM</option>
+                                        <option value="6:00PM">6:00 PM</option>
+                                        <option value="7:00PM">7:00 PM</option>
+                                    <%} else { %>
+                                        <% if (work[0].sat_to==="2:00PM") { %>
+                                            <option value="" disabled hidden>---Select---</option>
+                                            <option value="Unavailable">Unavailable</option>
+                                            <option value="12:00PM">12:00 PM</option>
+                                            <option value="1:00PM">1:00 PM</option>
+                                            <option value="2:00PM" selected>2:00 PM</option>
+                                            <option value="3:00PM">3:00 PM</option>
+                                            <option value="4:00PM">4:00 PM</option>
+                                            <option value="5:00PM">5:00 PM</option>
+                                            <option value="6:00PM">6:00 PM</option>
+                                            <option value="7:00PM">7:00 PM</option>
+                                        <%} else { %>
+                                            <% if (work[0].sat_to==="3:00PM") { %>
+                                                <option value="" disabled hidden>---Select---</option>
+                                                <option value="Unavailable">Unavailable</option>
+                                                <option value="12:00PM">12:00 PM</option>
+                                                <option value="1:00PM">1:00 PM</option>
+                                                <option value="2:00PM">2:00 PM</option>
+                                                <option value="3:00PM" selected>3:00 PM</option>
+                                                <option value="4:00PM">4:00 PM</option>
+                                                <option value="5:00PM">5:00 PM</option>
+                                                <option value="6:00PM">6:00 PM</option>
+                                                <option value="7:00PM">7:00 PM</option>
+                                            <%} else { %>
+                                                <% if (work[0].sat_to==="4:00PM") { %>
+                                                    <option value="" disabled hidden>---Select---</option>
+                                                    <option value="Unavailable" >Unavailable</option>
+                                                    <option value="12:00PM">12:00 PM</option>
+                                                    <option value="1:00PM">1:00 PM</option>
+                                                    <option value="2:00PM">2:00 PM</option>
+                                                    <option value="3:00PM">3:00 PM</option>
+                                                    <option value="4:00PM" selected>4:00 PM</option>
+                                                    <option value="5:00PM">5:00 PM</option>
+                                                    <option value="6:00PM">6:00 PM</option>
+                                                    <option value="7:00PM">7:00 PM</option>
+                                                <%} else { %>
+                                                    <% if (work[0].sat_to==="5:00PM") { %>
+                                                        <option value="" disabled hidden>---Select---</option>
+                                                        <option value="Unavailable" >Unavailable</option>
+                                                        <option value="12:00PM">12:00 PM</option>
+                                                        <option value="1:00PM">1:00 PM</option>
+                                                        <option value="2:00PM">2:00 PM</option>
+                                                        <option value="3:00PM">3:00 PM</option>
+                                                        <option value="4:00PM">4:00 PM</option>
+                                                        <option value="5:00PM">5:00 PM</option>
+                                                        <option value="6:00PM" selected>6:00 PM</option>
+                                                        <option value="7:00PM">7:00 PM</option>
+                                                    <%} else { %>
+                                                        <% if (work[0].sat_to==="6:00PM") { %>
+                                                            <option value="" disabled hidden>---Select---</option>
+                                                            <option value="Unavailable" >Unavailable</option>
+                                                            <option value="12:00PM">12:00 PM</option>
+                                                            <option value="1:00PM">1:00 PM</option>
+                                                            <option value="2:00PM">2:00 PM</option>
+                                                            <option value="3:00PM">3:00 PM</option>
+                                                            <option value="4:00PM">4:00 PM</option>
+                                                            <option value="5:00PM">5:00 PM</option>
+                                                            <option value="6:00PM" selected>6:00 PM</option>
+                                                            <option value="7:00PM">7:00 PM</option>
+                                                        <%} else { %>
+                                                            <option value="" disabled hidden>---Select---</option>
+                                                            <option value="Unavailable" >Unavailable</option>
+                                                            <option value="12:00PM">12:00 PM</option>
+                                                            <option value="1:00PM">1:00 PM</option>
+                                                            <option value="2:00PM">2:00 PM</option>
+                                                            <option value="3:00PM">3:00 PM</option>
+                                                            <option value="4:00PM">4:00 PM</option>
+                                                            <option value="5:00PM">5:00 PM</option>
+                                                            <option value="6:00PM">6:00 PM</option>
+                                                            <option value="7:00PM" selected>7:00 PM</option>
+                                                        <%}%>   
+                                                    <%}%>  
+                                                <%}%> 
+                                            <%}%>  
+                                        <%}%>   
+                                    <%}%> 
+                                <%}%>   
+                            <%}%>  
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">SUNDAY<span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-3">
+
+                        <select name="from_sun" id="from_sun" class="form-control" required>
+                            <% if (work[0].sun_from==="Unavailable") { %>
+                                <option value="" disabled hidden>---Select---</option>
+                                <option value="Unavailable" selected>Unavailable</option>
+                                <option value="11:00AM">11:00 AM</option>
+                                <option value="12:00PM">12:00 PM</option>
+                                <option value="1:00PM">1:00 PM</option>
+                                <option value="2:00PM">2:00 PM</option>
+                                <option value="3:00PM">3:00 PM</option>
+                                <option value="4:00PM">4:00 PM</option>
+                                <option value="5:00PM">5:00 PM</option>
+                                <option value="6:00PM">6:00 PM</option>
+                            <%} else { %>
+                                <% if (work[0].sun_from==="11:00AM") { %>
+                                    <option value="" disabled hidden>---Select---</option>
+                                    <option value="Unavailable" >Unavailable</option>
+                                    <option value="11:00AM" selected>11:00 AM</option>
+                                    <option value="12:00PM">12:00 PM</option>
+                                    <option value="1:00PM">1:00 PM</option>
+                                    <option value="2:00PM">2:00 PM</option>
+                                    <option value="3:00PM">3:00 PM</option>
+                                    <option value="4:00PM">4:00 PM</option>
+                                    <option value="5:00PM">5:00 PM</option>
+                                    <option value="6:00PM">6:00 PM</option>
+                                <%} else { %>
+                                    <% if (work[0].sun_from==="12:00PM") { %>
+                                        <option value="" disabled hidden>---Select---</option>
+                                        <option value="Unavailable" selected>Unavailable</option>
+                                        <option value="11:00AM">11:00 AM</option>
+                                        <option value="12:00PM" selected>12:00 PM</option>
+                                        <option value="1:00PM">1:00 PM</option>
+                                        <option value="2:00PM">2:00 PM</option>
+                                        <option value="3:00PM">3:00 PM</option>
+                                        <option value="4:00PM">4:00 PM</option>
+                                        <option value="5:00PM">5:00 PM</option>
+                                        <option value="6:00PM">6:00 PM</option>
+                                    <%} else { %>
+                                        <% if (work[0].sun_from==="1:00PM") { %>
+                                            <option value="" disabled hidden>---Select---</option>
+                                            <option value="Unavailable" selected>Unavailable</option>
+                                            <option value="11:00AM">11:00 AM</option>
+                                            <option value="12:00PM">12:00 PM</option>
+                                            <option value="1:00PM" selected>1:00 PM</option>
+                                            <option value="2:00PM">2:00 PM</option>
+                                            <option value="3:00PM">3:00 PM</option>
+                                            <option value="4:00PM">4:00 PM</option>
+                                            <option value="5:00PM">5:00 PM</option>
+                                            <option value="6:00PM">6:00 PM</option>
+                                        <%} else { %>
+                                            <% if (work[0].sun_from==="2:00PM") { %>
+                                                <option value="" disabled hidden>---Select---</option>
+                                                <option value="Unavailable">Unavailable</option>
+                                                <option value="11:00AM">11:00 AM</option>
+                                                <option value="12:00PM">12:00 PM</option>
+                                                <option value="1:00PM">1:00 PM</option>
+                                                <option value="2:00PM" selected>2:00 PM</option>
+                                                <option value="3:00PM">3:00 PM</option>
+                                                <option value="4:00PM">4:00 PM</option>
+                                                <option value="5:00PM">5:00 PM</option>
+                                            <%} else { %>
+                                                <% if (work[0].sun_from==="3:00PM") { %>
+                                                    <option value="" disabled hidden>---Select---</option>
+                                                    <option value="Unavailable">Unavailable</option>
+                                                    <option value="11:00AM">11:00 AM</option>
+                                                    <option value="12:00PM">12:00 PM</option>
+                                                    <option value="1:00PM">1:00 PM</option>
+                                                    <option value="2:00PM">2:00 PM</option>
+                                                    <option value="3:00PM" selected>3:00 PM</option>
+                                                    <option value="4:00PM">4:00 PM</option>
+                                                    <option value="5:00PM">5:00 PM</option>
+                                                    <option value="6:00PM">6:00 PM</option>
+                                                <%} else { %>
+                                                    <% if (work[0].sun_from==="4:00PM") { %>
+                                                        <option value="" disabled hidden>---Select---</option>
+                                                        <option value="Unavailable" >Unavailable</option>
+                                                        <option value="11:00AM">11:00 AM</option>
+                                                        <option value="12:00PM">12:00 PM</option>
+                                                        <option value="1:00PM">1:00 PM</option>
+                                                        <option value="2:00PM">2:00 PM</option>
+                                                        <option value="3:00PM">3:00 PM</option>
+                                                        <option value="4:00PM" selected>4:00 PM</option>
+                                                        <option value="5:00PM">5:00 PM</option>
+                                                        <option value="6:00PM">6:00 PM</option>
+                                                    <%} else { %>
+                                                        <% if (work[0].sun_from==="5:00pM") { %>
+                                                            <option value="" disabled hidden>---Select---</option>
+                                                            <option value="Unavailable" >Unavailable</option>
+                                                            <option value="11:00AM">11:00 AM</option>
+                                                            <option value="12:00PM">12:00 PM</option>
+                                                            <option value="1:00PM">1:00 PM</option>
+                                                            <option value="2:00PM">2:00 PM</option>
+                                                            <option value="3:00PM">3:00 PM</option>
+                                                            <option value="4:00PM">4:00 PM</option>
+                                                            <option value="5:00PM">5:00 PM</option>
+                                                            <option value="6:00PM" selected>6:00 PM</option>
+                                                        <%} else { %>
+                                                            <option value="" disabled hidden>---Select---</option>
+                                                            <option value="Unavailable" >Unavailable</option>
+                                                            <option value="11:00AM">11:00 AM</option>
+                                                            <option value="12:00PM">12:00 PM</option>
+                                                            <option value="1:00PM">1:00 PM</option>
+                                                            <option value="2:00PM">2:00 PM</option>
+                                                            <option value="3:00PM">3:00 PM</option>
+                                                            <option value="4:00PM">4:00 PM</option>
+                                                            <option value="5:00PM">5:00 PM</option>
+                                                            <option value="6:00PM" selected>6:00 PM</option>
+                                                        <%}%>   
+                                                    <%}%>  
+                                                <%}%> 
+                                            <%}%>  
+                                        <%}%>   
+                                    <%}%> 
+                                <%}%>   
+                            <%}%>  
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-2 offset-md-1">
+                        <label class="col-form-label">TO</label>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <select name="to_sun" id="to_sun" class="form-control" required>
+                            <% if (work[0].sun_to==="Unavailable") { %>
+                                <option value="" disabled hidden>---Select---</option>
+                                <option value="Unavailable" selected>Unavailable</option>
+                                <option value="12:00PM">12:00 PM</option>
+                                <option value="1:00PM">1:00 PM</option>
+                                <option value="2:00PM">2:00 PM</option>
+                                <option value="3:00PM">3:00 PM</option>
+                                <option value="4:00PM">4:00 PM</option>
+                                <option value="5:00PM">5:00 PM</option>
+                                <option value="6:00PM">6:00 PM</option>
+                                <option value="7:00PM">7:00 PM</option>
+                            <%} else { %>
+                                <% if (work[0].sun_to==="12:00PM") { %>
+                                    <option value="" disabled hidden>---Select---</option>
+                                    <option value="Unavailable" selected>Unavailable</option>
+                                    <option value="12:00PM" selected>12:00 PM</option>
+                                    <option value="1:00PM">1:00 PM</option>
+                                    <option value="2:00PM">2:00 PM</option>
+                                    <option value="3:00PM">3:00 PM</option>
+                                    <option value="4:00PM">4:00 PM</option>
+                                    <option value="5:00PM">5:00 PM</option>
+                                    <option value="6:00PM">6:00 PM</option>
+                                    <option value="7:00PM">7:00 PM</option>
+                                <%} else { %>
+                                    <% if (work[0].sun_to==="1:00PM") { %>
+                                        <option value="" disabled hidden>---Select---</option>
+                                        <option value="Unavailable" selected>Unavailable</option>
+                                        <option value="12:00PM">12:00 PM</option>
+                                        <option value="1:00PM" selected>1:00 PM</option>
+                                        <option value="2:00PM">2:00 PM</option>
+                                        <option value="3:00PM">3:00 PM</option>
+                                        <option value="4:00PM">4:00 PM</option>
+                                        <option value="5:00PM">5:00 PM</option>
+                                        <option value="6:00PM">6:00 PM</option>
+                                        <option value="7:00PM">7:00 PM</option>
+                                    <%} else { %>
+                                        <% if (work[0].sun_to==="2:00PM") { %>
+                                            <option value="" disabled hidden>---Select---</option>
+                                            <option value="Unavailable">Unavailable</option>
+                                            <option value="12:00PM">12:00 PM</option>
+                                            <option value="1:00PM">1:00 PM</option>
+                                            <option value="2:00PM" selected>2:00 PM</option>
+                                            <option value="3:00PM">3:00 PM</option>
+                                            <option value="4:00PM">4:00 PM</option>
+                                            <option value="5:00PM">5:00 PM</option>
+                                            <option value="6:00PM">6:00 PM</option>
+                                            <option value="7:00PM">7:00 PM</option>
+                                        <%} else { %>
+                                            <% if (work[0].sun_to==="3:00PM") { %>
+                                                <option value="" disabled hidden>---Select---</option>
+                                                <option value="Unavailable">Unavailable</option>
+                                                <option value="12:00PM">12:00 PM</option>
+                                                <option value="1:00PM">1:00 PM</option>
+                                                <option value="2:00PM">2:00 PM</option>
+                                                <option value="3:00PM" selected>3:00 PM</option>
+                                                <option value="4:00PM">4:00 PM</option>
+                                                <option value="5:00PM">5:00 PM</option>
+                                                <option value="6:00PM">6:00 PM</option>
+                                                <option value="7:00PM">7:00 PM</option>
+                                            <%} else { %>
+                                                <% if (work[0].sun_to==="4:00PM") { %>
+                                                    <option value="" disabled hidden>---Select---</option>
+                                                    <option value="Unavailable" >Unavailable</option>
+                                                    <option value="12:00PM">12:00 PM</option>
+                                                    <option value="1:00PM">1:00 PM</option>
+                                                    <option value="2:00PM">2:00 PM</option>
+                                                    <option value="3:00PM">3:00 PM</option>
+                                                    <option value="4:00PM" selected>4:00 PM</option>
+                                                    <option value="5:00PM">5:00 PM</option>
+                                                    <option value="6:00PM">6:00 PM</option>
+                                                    <option value="7:00PM">7:00 PM</option>
+                                                <%} else { %>
+                                                    <% if (work[0].sun_to==="5:00PM") { %>
+                                                        <option value="" disabled hidden>---Select---</option>
+                                                        <option value="Unavailable" >Unavailable</option>
+                                                        <option value="12:00PM">12:00 PM</option>
+                                                        <option value="1:00PM">1:00 PM</option>
+                                                        <option value="2:00PM">2:00 PM</option>
+                                                        <option value="3:00PM">3:00 PM</option>
+                                                        <option value="4:00PM">4:00 PM</option>
+                                                        <option value="5:00PM">5:00 PM</option>
+                                                        <option value="6:00PM" selected>6:00 PM</option>
+                                                        <option value="7:00PM">7:00 PM</option>
+                                                    <%} else { %>
+                                                        <% if (work[0].sun_to==="6:00PM") { %>
+                                                            <option value="" disabled hidden>---Select---</option>
+                                                            <option value="Unavailable" >Unavailable</option>
+                                                            <option value="12:00PM">12:00 PM</option>
+                                                            <option value="1:00PM">1:00 PM</option>
+                                                            <option value="2:00PM">2:00 PM</option>
+                                                            <option value="3:00PM">3:00 PM</option>
+                                                            <option value="4:00PM">4:00 PM</option>
+                                                            <option value="5:00PM">5:00 PM</option>
+                                                            <option value="6:00PM" selected>6:00 PM</option>
+                                                            <option value="7:00PM">7:00 PM</option>
+                                                        <%} else { %>
+                                                            <option value="" disabled hidden>---Select---</option>
+                                                            <option value="Unavailable" >Unavailable</option>
+                                                            <option value="12:00PM">12:00 PM</option>
+                                                            <option value="1:00PM">1:00 PM</option>
+                                                            <option value="2:00PM">2:00 PM</option>
+                                                            <option value="3:00PM">3:00 PM</option>
+                                                            <option value="4:00PM">4:00 PM</option>
+                                                            <option value="5:00PM">5:00 PM</option>
+                                                            <option value="6:00PM">6:00 PM</option>
+                                                            <option value="7:00PM" selected>7:00 PM</option>
+                                                        <%}%>   
+                                                    <%}%>  
+                                                <%}%> 
+                                            <%}%>  
+                                        <%}%>   
+                                    <%}%> 
+                                <%}%>   
+                            <%}%>  
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">
+                        WORK EXPERIENCE
+                        <span class="r">*</span>
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <input class="form-control" type="number" name="exp" id="exp" 
+                        placeholder="Enter Years of Experience" min="0" required value="<%= work[0].exp %>">
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label class="col-md-3 col-form-label">QUALIFICATION<span class="r">*</span></label>
+
+                    <div class="col-md-9">
+
+                        <textarea name="medical_colleges" id="medical_colleges" cols="96" rows="10" placeholder="Qualified from which medical colleges..." required><%= work[0].medical_college %></textarea>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-2 offset-md-4">
+
+                        <input class="btn btn-success btn-lg" onclick="modOpen()" data-target="#myModal" type="button" value="SUBMIT    &#10003;">
+
+                    </div>
+
+                    <div class="col-md-4 offset-md-2">
+                        
+                        <input type="button" class="btn btn-danger btn-lg" onclick="modOp()" data-target="#myMod" value="CLEAR    &#8634;">
+
+                    </div>
+
+                </div>
+
+                <div class="modal fade" id="myModal">
+
+                    <div class="modal-dialog modal-dialog-centered">
+
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+
+                                <h5 class="modal-title">
+                                    <img src="../../public/images/CT.png" width="30" height="30"> CONFIRMATION
+                                </h5>
+                                
+                                <span class="close closeBtn" data-dismiss="modal">
+                                    &times;
+                                </span>
+
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p>Are you sure you want to SUBMIT the data?</p>
+
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button class="btn btn-success" type="submit" href="/" id="submit" onclick="modClose()">YES</button>
+
+                                <button class="btn btn-danger" data-dismiss="modal">NO</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal fade" id="myMod">
+
+                    <div class="modal-dialog modal-dialog-centered">
+
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+
+                                <h5 class="modal-title">
+                                  <img src="../../public/images/EXM.png" width="30" height="30">  CONFIRMATION
+                                </h5>
+
+                                <span class="closeBtn close" data-dismiss="modal">
+                                    &times;
+                                </span>
+
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p>Are you sure you want to RESET the data?</p>
+
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button class="btn btn-success" id="reset" type="reset" onclick="modClo();topPage()" data-target="#myMod">
+                                    YES
+                                </button>
+
+                                <!--<button class="btn btn-success" type="submit" formnovalidate 
+                                href="DM.html">
+                                    YES onclick="$(myMod).modal('hide')"
+                                </button>-->
+
+                                <button class="btn btn-danger" data-dismiss="modal">NO</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div style="min-height: 50px;"></div>
+
+</div>
+
+<script src="../../public/javascripts/fmod.js"></script>
+
+<%- include('partials/footer'); %>
